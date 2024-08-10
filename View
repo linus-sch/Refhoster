@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>Refhoster-View link collection</title>
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+        transition: background-color 0.3s ease;
+    }
+
+    ::selection {
+       background: #5271FF; 
+       color: #ffffff;
+    }
+   .container {
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        transition: opacity 0.3s ease;
+    }
+    
+    label {
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+    
+   .source-id-input-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+   .source-id-input-box {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        font-size: 18px;
+        text-align: center;
+    }
+    
+   .source-id-input-box:focus {
+        border-color: #007bff;
+        box-shadow: 0 2px 0 0 #007bff;
+    }
+    
+   .source-id-input-box::placeholder {
+        color: #ccc;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        background-color: #5271FF;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    button[type="submit"]:hover {
+        background-color: #1B72E8;
+    }
+    
+    #links-container {
+        padding: 20px;
+        display: none;
+    }
+    
+   .collection-title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    
+   .collection-subtitle {
+        text-align: center;
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 20px;
+    }
+    
+   .links-header {
+        margin-bottom: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    
+   .link-container {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-left: 5px solid #5271FF;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+   .link-container h4 {
+        margin: 0;
+        color: #333;
+    }
+    
+   .link-container a {
+        text-decoration: none;
+        color: #337ab7;
+    }
+    
+   .link-container a:hover {
+        color: #23527c;
+    }
+    
+    .view-count {
+        font-size: small;
+        color: grey;
+        text-align: center;
+    }
+    
+    .feedback-message {
+        color: green;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <form id="view-form">
+            <center>
+            </center>
+            <div class="source-id-input-container">
+                <input type="text" class="source-id-input-box" id="source-id" size="4" placeholder="Source pin">
+            </div>
+            <button id="submit-btn" type="submit">Open</button>
+            <div id="error-message"></div>
+            <div id="feedback-message" class="feedback-message"></div>
+        </form>
+
+    <hr style="height: 1px; background-color: #E0E0E0; border: none;">
+
+        <div id="links-container" style="display: none;"></div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="https://www.refhoster.com/create" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Create link collection</a>
+
+<a href="https://www.refhoster.com/feedback" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Feedback</a>
+
+    </div>
+    <p></p><br>
+            <center>
+    <small style="color: 707070; font-size: small;" >©2024 Refhoster</small><br>
+            </center>
+    <p></p><br>
+
+  <p></p><br>
+
+    <script>
+        const form = document.getElementById('view-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const linksContainer = document.getElementById('links-container');
+        const sourceIdInput = document.getElementById('source-id');
+        const feedbackMessage = document.getElementById('feedback-message');
+
+        submitBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const sourceId = sourceIdInput.value.trim();
+            if (sourceId.length === 4) {
+                submitBtn.textContent = 'Loading...';  // Update button text to "Loading..."
+                fetch(`https://script.google.com/macros/s/AKfycbx2i_72wycJzqgUqIZ4bVPTDMWMY5P1J1OOYVchQmCfAT00MEhgdiRMxwXtXoC61b2SXQ/exec?sourceId=${sourceId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            displayError(data.error);
+                        } else {
+                            displayLinks(data);
+                        }
+                        submitBtn.textContent = 'Open';  // Reset button text to "Open"
+                    })
+                    .catch(error => {
+                        displayError('Error fetching data. Please try again.');
+                        submitBtn.textContent = 'Open';  // Reset button text to "Open"
+                    });
+            } else {
+                displayError('Invalid source ID. Please enter a 4-digit code.');
+            }
+        });
+
+        function displayLinks(data) {
+            linksContainer.innerHTML = '';
+            const collectionTitle = document.createElement('h2');
+            collectionTitle.className = 'collection-title';
+            collectionTitle.textContent = data.collectionTitle;
+            linksContainer.appendChild(collectionTitle);
+
+            const collectionSubtitle = document.createElement('h3');
+            collectionSubtitle.className = 'collection-subtitle';
+            collectionSubtitle.textContent = data.collectionSubtitle;
+            linksContainer.appendChild(collectionSubtitle);
+
+            const viewCount = document.createElement('p');
+            viewCount.className = 'view-count';
+            viewCount.textContent = `Views: ${data.viewCount}`;
+            linksContainer.appendChild(viewCount);
+
+            const linksHeader = document.createElement('h3');
+            linksHeader.className = 'links-header';
+            linksHeader.textContent = 'Links:';
+            linksContainer.appendChild(linksHeader);
+
+            data.links.forEach((link) => {
+                const linkContainer = document.createElement('div');
+                linkContainer.className = 'link-container';
+
+                const linkTitle = document.createElement('h4');
+                linkTitle.textContent = link.title;
+                linkContainer.appendChild(linkTitle);
+
+                const linkAnchor = document.createElement('a');
+                linkAnchor.href = link.link;
+                linkAnchor.target = '_blank';
+                linkAnchor.textContent = link.link;
+                linkContainer.appendChild(linkAnchor);
+
+                linksContainer.appendChild(linkContainer);
+            });
+
+            linksContainer.style.display = 'block';
+        }
+
+        function displayError(message) {
+            const errorMessageContainer = document.getElementById('error-message');
+            errorMessageContainer.textContent = message;
+            errorMessageContainer.style.color = '#fc6146';
+            feedbackMessage.textContent = '';
+        }
+    </script>
+</body>
+</html>
