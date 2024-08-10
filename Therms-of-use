@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Therms of use</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        p {
+            line-height: 1.6;
+            text-align: left; /* Text linksbündig */
+        }
+        .back-link {
+            display: block;
+            margin-bottom: 20px;
+            text-align: left; /* Links ausgerichtet */
+            color: #007bff;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline; /* Unterstreichen beim Hover */
+        }
+         hr {
+            border: none; /* Entfernt die Standardgrenze */
+            height: 2px; /* Höhe der Linie */
+            background-color: black; /* Farbe der Linie */
+            margin: 20px 0; /* Abstand oben und unten */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+<p style="text-align: left;">
+  <a href="/" style="text-decoration: none; color: #000;">
+    <span class="material-symbols-rounded" style="vertical-align: middle;">arrow_back</span>
+  </a>
+</p>  
+<hr>
+<h1>Nutzungsbedingungen</h1>
+        <p>We explicitly distance ourselves from the content of individual link collections and links to external websites.</p>
+        
+        <h2>Deletion of Content:</h2>
+        <p>We have the right to delete data without giving reasons. Deleted link collections cannot be restored. Users are responsible for creating backups of their data on this site themselves. Additionally, unused link collections will be deleted after six months of inactivity. Administrators review link collections randomly or with appropriate systems regularly for contents that violate valid law. Administrators can randomly lock or delete link collections at any time without prior announcement if it is assumed that their contents violate valid law.</p>
+        
+        <h2>Technical Disruptions:</h2>
+        <p>We make no guarantees or warranties regarding the technical functionality of the website or its associated services, including but not limited to failures due to software errors, hardware failure, network disruptions or other technical causes. Users are recommended to maintain an efficient and up-to-date backup strategy to minimize possible data loss or damages during technical disruptions. Users use the service at their own risk and responsibility.</p>
+        
+        <h2>Changes:</h2>
+        <p>The referenced host may change these terms of use at any time by publishing a corresponding notification on his website. The continued use of the website implies acceptance of these changes.</p>
+    </div>
+    <p style="text-align: center;">
+  <a href="mailto:contact-net@lumicoo.com" style="text-decoration: none; color: #000;">Email</a> | <a href="https://www.lumicoo.net/tnlt/datenschutz" style="text-decoration: none; color: #000;">Datenschutz</a>
+</p>
+</body>
+</html>
