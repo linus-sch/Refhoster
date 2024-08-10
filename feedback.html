@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      transition: background-color 0.3s ease;
+    }
+
+    ::selection {
+       background: #5271FF; 
+       color: #ffffff;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    form {
+      border: 1px solid #ddd;
+      display: flex;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+    }
+
+    form h4 {
+      margin: 0;
+      color: #fff;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #595ad4;
+      background-color: #fff;
+      font-size: 16px; /* Standard Schriftgröße für die Eingabefelder */
+    }
+
+    textarea::placeholder {
+      font-size: 15px; /* Gleiche Schriftgröße wie der Text im Paragraph */
+    }
+
+    #submit {
+      background-color: #5271FF;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Helvetica Neue', sans-serif;
+      transition: background-color 0.3s;
+    }
+
+    #submit:hover {
+      background-color: #5271FF;
+    }
+
+    #order-number {
+      background-color: #595ad4;
+      color: white;
+      padding: 10px;
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+
+    p {
+      font-size: 15px; /* Standard Schriftgröße für den Paragraph */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <form method="post" action="https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec">
+      <div style="text-align: left;">
+      <center>
+      <a href="https://www.refhoster.com">
+        <img src="https://i.ibb.co/27Mb1xw/IMG-8363.jpg" alt="Refhoster Logo" style="width: 30%; max-width: 1700px; height: auto; margin: 0 auto;">
+      </a>
+      <hr style="height: 1px; background-color: #E0E0E0; border: none;">
+    </center>
+  <h2>Feedback</h2>
+       <p>Your input is the driving force behind our growth. Thanks for being an integral part of our story!</p>
+      </div>
+      <textarea name="feedback" rows="5" placeholder="Feedback"></textarea>
+      <input type="submit" value="Send" id="submit">
+    </form>
+  </div>
+
+    <div style="text-align: center;">
+        <a href="/create" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Create link group</a>
+
+<a href="/view" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">View link collection</a>
+
+    </div>
+    <p></p><br>
+            <center>
+    <small style="color: 707070; font-size: small;" >©2024 Refhoster</small><br>
+            </center>
+    <p></p><br>
+
+  <p></p><br>
+
+  <script>
+    const form = document.forms[0];
+    const submitButton = document.getElementById('submit');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      submitButton.value = 'Sent!';
+      submitButton.disabled = true;
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec";
+      const formData = new FormData(form);
+
+      fetch(scriptURL, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          alert("Your message has been sent successfully.");
+          form.reset();
+          submitButton.value = 'Send';
+          submitButton.disabled = false;
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          submitButton.value = 'Send';
+          submitButton.disabled = false;
+        });
+    });
+  </script>
+</body>
+</html>
