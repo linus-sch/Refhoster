@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Einfaches Layout</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: white;
@@ -12,6 +13,8 @@
             align-items: center;
             height: 100vh;
             margin: 0;
+            font-family: 'Roboto', sans-serif; /* Verwende die Google Font */
+            flex-direction: column; /* Vertikale Anordnung */
         }
         .button {
             background-color: #5271FF;
@@ -19,14 +22,31 @@
             border: none;
             border-radius: 10px;
             padding: 10px 20px;
-            margin: 0 10px;
+            margin: 5px 0; /* Abstand zwischen den Buttons (5px oben und unten) */
             cursor: pointer;
             font-size: 16px;
+            font-family: 'Roboto', sans-serif; /* Schriftart für die Buttons */
+            transition: background-color 0.3s; /* Sanfter Übergang für den Hover-Effekt */
+            text-decoration: none; /* Entfernt die Unterstreichung */
+            display: inline-block; /* Macht den Link wie einen Button */
+        }
+        .button:hover {
+            background-color: #4058D0; /* Dunklere Farbe beim Hover */
+        }
+
+        /* Media Query für mobile Geräte */
+        @media (min-width: 600px) {
+            body {
+                flex-direction: row; /* Horizontale Anordnung auf größeren Bildschirmen */
+            }
+            .button {
+                margin: 0 5px; /* Abstand von 5px links und rechts auf größeren Bildschirmen */
+            }
         }
     </style>
 </head>
 <body>
-    <button href="/create" class="button">Create Collection</button>
-    <button href="/view" class="button">View Collection</button>
+    <a href="/create" class="button">Create Collection</a>
+    <a href="/view" class="button">View Collection</a>
 </body>
 </html>
