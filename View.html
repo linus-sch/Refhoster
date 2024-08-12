@@ -86,12 +86,32 @@
             font-size: 16px;
             margin-top: 10px;
         }
+
+        .enter-pin-button {
+            display: block;
+            width: 95%;
+            background-color: #5271FF;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .enter-pin-button:hover {
+            background-color: #1B72E8;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div id="links-container"></div>
         <div id="error-message" class="error-message"></div>
+        <a id="enter-pin-button" class="enter-pin-button" href="/Enter-Pin" style="display: none;">Enter a Pin</a>
     </div>
 
     <div style="text-align: center;">
@@ -107,6 +127,7 @@
     <script>
         const linksContainer = document.getElementById('links-container');
         const errorMessageContainer = document.getElementById('error-message');
+        const enterPinButton = document.getElementById('enter-pin-button');
 
         // Funktion zum Abrufen des URL-Parameters
         function getUrlParameter(name) {
@@ -173,6 +194,7 @@
             });
 
             linksContainer.style.display = 'block';
+            enterPinButton.style.display = 'none'; // Verstecke den Button, wenn Links angezeigt werden
         }
 
         // Funktion zum Anzeigen von Fehlern
@@ -180,6 +202,7 @@
             errorMessageContainer.textContent = message;
             errorMessageContainer.style.display = 'block';
             linksContainer.style.display = 'none';
+            enterPinButton.style.display = 'block'; // Zeige den Button, wenn ein Fehler auftritt
         }
 
         // Hauptfunktion, die beim Laden der Seite ausgeführt wird
@@ -188,7 +211,7 @@
             if (pin.length === 4) {
                 fetchLinks(pin); // Rufe die Links mit dem PIN ab
             } else {
-                displayError('Invalid or missing PIN. Please provide a valid 4-digit PIN in the URL.');
+                displayError('Invalid or missing PIN. Please provide a valid 4-digit PIN in the URL or enter a PIN manualy.');
             }
         };
     </script>
