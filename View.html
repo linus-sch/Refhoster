@@ -4,7 +4,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <title>Refhoster-View link collection</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -126,115 +125,95 @@
     <p></p><br>
 
     <script>
-            const form = document.getElementById('link-form');
-    const addLinkBtn = document.getElementById('add-link-btn');
-    const submitBtn = document.getElementById('submit-btn');
-    const dynamicLinksDiv = document.getElementById('dynamic-links');
-    const popup = document.getElementById('popup');
-    const successMessage = document.getElementById('success-message');
-    let linkCount = 3;
+        const linksContainer = document.getElementById('links-container');
+        const errorMessageContainer = document.getElementById('error-message');
+        const enterPinButton = document.getElementById('enter-pin-button');
 
-    addLinkBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const newLinkDiv = document.createElement('div');
-      newLinkDiv.className = 'link-input';
-      newLinkDiv.innerHTML = `
-        <label for="title${linkCount + 1}">Title Nr.${linkCount + 1}:</label>
-        <input type="text" id="title${linkCount + 1}" name="title${linkCount + 1}">
-        <label for="link${linkCount + 1}">Link Nr.${linkCount + 1}:</label>
-        <input type="text" id="link${linkCount + 1}" name="link${linkCount + 1}">
-      `;
-      dynamicLinksDiv.appendChild(newLinkDiv);
-      linkCount++;
-    });
+        // Funktion zum Abrufen des URL-Parameters
+        function getUrlParameter(name) {
+            name = name.replace(/[$$]/, '\\[').replace(/[$$]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
 
-    submitBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const pairs = [];
-      for (let i = 1; i <= linkCount; i++) {
-        const title = document.getElementById(`title${i}`).value || '';
-        const link = document.getElementById(`link${i}`).value || '';
-        pairs.push(`${title} || ${link}`);
-      }
-      const collectionTitle = document.getElementById('collection-title').value || '';
-      const collectionSubtitle = document.getElementById('collection-subtitle').value || '';
+        // Funktion zum Abrufen der Links basierend auf dem PIN
+        function fetchLinks(pin) {
+            fetch(`https://script.google.com/macros/s/AKfycbx2i_72wycJzqgUqIZ4bVPTDMWMY5P1J1OOYVchQmCfAT00MEhgdiRMxwXtXoC61b2SXQ/exec?sourceId=${pin}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        displayError(data.error);
+                    } else {
+                        displayLinks(data);
+                    }
+                })
+                .catch(error => {
+                    displayError('Error fetching data. Please try again.');
+                });
+        }
 
-      // Create a popup to enter code and password
-      const popupContainer = document.createElement('div');
-      popupContainer.innerHTML = `<div class="popup"> 
-        <div class="popup-container" style="padding: 20px; border-radius: 10px; background-color: #fff; max-width: 400px; margin: auto;">
-          <h2>QR code and source pin</h2>
-          <p>By scanning the QR code, your visitors can access your links.</p>
-          <form id="code-form">
-            <div class="image-text-container" style="padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-radius: 10px; background-color: #FFFFFF; text-align: center; margin-bottom: 20px;">
-              <div id="qrcode"></div>
-              <div id="code" style="font-size: 24px; font-weight: bold; margin-top: 10px;"></div>
-            </div>
-            <button id="submit-code-btn" style="background-color: #5271FF; color: #fff; padding: 10px 10px; border: 1px solid #1B72E8; border-radius: 5px; cursor: pointer; width: 100%;">Publish</button>
-            <button id="close-btn" class="close-btn" style="position: absolute; top: 10px; right: 10px; font-size: 18px; cursor: pointer;">×</button>
-          </form>
-        </div>
-      </div>`;
-      document.body.appendChild(popupContainer);
+        // Funktion zum Anzeigen der Links
+        function displayLinks(data) {
+            linksContainer.innerHTML = '';
+            const collectionTitle = document.createElement('h2');
+            collectionTitle.className = 'collection-title';
+            collectionTitle.textContent = data.collectionTitle;
+            linksContainer.appendChild(collectionTitle);
 
-      // Add event listener to close button
-      document.getElementById('close-btn').addEventListener('click', (e) => {
-        e.preventDefault();
-        popupContainer.remove();
-      });
+            const collectionSubtitle = document.createElement('h3');
+            collectionSubtitle.className = 'collection-subtitle';
+            collectionSubtitle.textContent = data.collectionSubtitle;
+            linksContainer.appendChild(collectionSubtitle);
 
-      // Generate a random 4-digit code
-      const code = Math.floor(1000 + Math.random() * 9000);
-      document.getElementById('code').innerText = code;
+            const viewCount = document.createElement('p');
+            viewCount.className = 'view-count';
+            viewCount.textContent = `Views: ${data.viewCount}`;
+            linksContainer.appendChild(viewCount);
 
-      // Generate QR code
-      new QRCode(document.getElementById("qrcode"), {
-        text: `https://refhoster.com/Viewpin?pin=${code}`,
-        width: 128,
-        height: 128
-      });
+            const linksHeader = document.createElement('h3');
+            linksHeader.className = 'links-header';
+            linksHeader.textContent = 'Links:';
+            linksContainer.appendChild(linksHeader);
 
-      // Add event listener to submit code and password
-      document.getElementById('submit-code-btn').addEventListener('click', (e) => {
-        e.preventDefault();
-        const submitCodeBtn = document.getElementById('submit-code-btn');
-        submitCodeBtn.textContent = 'Loading...';
-        const password = document.getElementById('password').value || ''; // Set to empty string if not entered
-        const data = {
-          submittedValues: pairs.join("\n"),
-          code: code,
-          password: password, // Send empty string if not entered
-          title: collectionTitle,
-          subtitle: collectionSubtitle
+            data.links.forEach((link) => {
+                const linkContainer = document.createElement('div');
+                linkContainer.className = 'link-container';
+
+                const linkTitle = document.createElement('h4');
+                linkTitle.textContent = link.title;
+                linkContainer.appendChild(linkTitle);
+
+                const linkAnchor = document.createElement('a');
+                linkAnchor.href = link.link;
+                linkAnchor.target = '_blank';
+                linkAnchor.textContent = link.link;
+                linkContainer.appendChild(linkAnchor);
+
+                linksContainer.appendChild(linkContainer);
+            });
+
+            linksContainer.style.display = 'block';
+            enterPinButton.style.display = 'none'; // Verstecke den Button, wenn Links angezeigt werden
+        }
+
+        // Funktion zum Anzeigen von Fehlern
+        function displayError(message) {
+            errorMessageContainer.textContent = message;
+            errorMessageContainer.style.display = 'block';
+            linksContainer.style.display = 'none';
+            enterPinButton.style.display = 'block'; // Zeige den Button, wenn ein Fehler auftritt
+        }
+
+        // Hauptfunktion, die beim Laden der Seite ausgeführt wird
+        window.onload = function() {
+            const pin = getUrlParameter('pin'); // 'pin' ist der Parametername
+            if (pin.length === 4) {
+                fetchLinks(pin); // Rufe die Links mit dem PIN ab
+            } else {
+                displayError('Invalid or missing PIN. Please provide a valid 4-digit PIN in the URL or enter a PIN manually.');
+            }
         };
-        fetch('https://script.google.com/macros/s/AKfycbx2i_72wycJzqgUqIZ4bVPTDMWMY5P1J1OOYVchQmCfAT00MEhgdiRMxwXtXoC61b2SXQ/exec', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: new URLSearchParams(data)
-        })
-       .then(response => response.json())
-       .then(result => {
-          submitCodeBtn.textContent = 'Submit';
-          if (result.success) {
-            successMessage.textContent = 'Your link collection has been successfully created.';
-            popup.style.display = 'block'; // Popup anzeigen
-            setTimeout(() => {
-              popup.style.display = 'none'; // Popup nach 5 Sekunden ausblenden
-            }, 5000);
-            popupContainer.remove();
-            form.reset();  // Clear the form after successful submission
-          } else {
-            alert(result.message);
-          }
-        })
-       .catch(error => {
-          console.error('Error:', error);
-          alert('An error occurred while submitting the form. Please try again.');
-        });
-      });
-    });
     </script>
 </body>
 </html>
