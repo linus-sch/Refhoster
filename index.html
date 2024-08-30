@@ -1,63 +1,273 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Refhoster - Menu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- Google tag (gtag.js) -->
-       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDFP31GGTT"></script>
-       <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-
-         gtag('config', 'G-QDFP31GGTT');
-        </script>
-    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Refhoster</title>
     <style>
-        body {
-            background-color: white;
+        body, html {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            height: 100%;
+        }
+        .hero {
+            background-image: url('/img/refhoster-heroe');
+            height: 100vh;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Roboto', sans-serif; /* Verwende die Google Font */
-            flex-direction: column; /* Vertikale Anordnung */
+            text-align: left;
+        }
+            p {
+            text-align: left;
+
+    }       
+        .logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            color: black;
+            font-size: 36px;
+            margin-bottom: 30px;
         }
         .button {
-            background-color: #5271FF;
-            color: white;
+            background-color: #4285F4;
             border: none;
-            border-radius: 10px;
-            padding: 10px 20px;
-            margin: 5px 0; /* Abstand zwischen den Buttons (5px oben und unten) */
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 20px 0;
             cursor: pointer;
-            font-size: 16px;
-            font-family: 'Roboto', sans-serif; /* Schriftart für die Buttons */
-            transition: background-color 0.3s; /* Sanfter Übergang für den Hover-Effekt */
-            text-decoration: none; /* Entfernt die Unterstreichung */
-            display: inline-block; /* Macht den Link wie einen Button */
+            border-radius: 4px;
         }
-        .button:hover {
-            background-color: #4058D0; /* Dunklere Farbe beim Hover */
+        .subtext {
+            color: black;
+            font-size: 14px;
         }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 40px 0;
+            
+        }
+        .header-text {
+            flex: 1;
+        }
+        .header-image {
+            flex: 1;
+            text-align: right;
+        }
+        .header h2 {
+            color: #4285F4;
+            font-size: 24px;
+        }
+        .problem {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .problem-text {
+            flex: 1;
+            order: 2;
+        }
+        .problem h2 {
+            color: #4285F4;
+            font-size: 24px;
+        }
+        .problem-image {
+            flex: 1;
+            text-align: left;
+            order: 1;
+        }
+        .feedback {
+            background-color: #4285F4;
+            color: white;
+            padding: 40px;
+            text-align: left;
+        }
+        .feedback .button {
+            background-color: white;
+            color: #4285F4;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+            .container {
+      text-align: center;
+    }
 
-        /* Media Query für mobile Geräte */
-        @media (min-width: 600px) {
-            body {
-                flex-direction: row; /* Horizontale Anordnung auf größeren Bildschirmen */
-            }
-            .button {
-                margin: 0 5px; /* Abstand von 5px links und rechts auf größeren Bildschirmen */
-            }
-        }
+    label {
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    form {
+      border: 1px solid #ddd;
+      display: flex;
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      display: inline-block;
+      border-radius: 10px;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fff;
+    }
+
+    form h4 {
+      margin: 0;
+      color: #fff;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      border-radius: 5px;
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #595ad4;
+      background-color: #fff;
+      font-size: 16px; 
+    }
+
+    textarea::placeholder {
+      font-size: 15px; 
+    }
+
+    #submit {
+      background-color: #5271FF;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    #submit:hover {
+      background-color: #5271FF;
+    }
     </style>
 </head>
 <body>
-    <a href="/Create" class="button">Create Collection</a>
-    <a href="/Enter-Pin" class="button">View Collection</a>
+    <div class="hero">
+        <img src="/img/refhoster-logo-text" alt="Refhoster Logo" class="logo">
+        <h1>Host your references on a QR code</h1>
+        <button class="button">Get Started</button>
+        <p class="subtext">100% free, no signup</p>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <div class="header-text">
+                <h2>What's Refhoster?</h2>
+                <p>With Refhoster, you can save the sources and links for your presentation or video on a QR code.</p>
+                <p>All you gotta do is enter all your links with their titles into a form, no sign-up needed, and it's free.</p>
+                <p>Then, anyone can scan the QR code you get and enter the source pin provided. They'll see all the links with their titles and subtitles in the collection. Plus, everyone can see how many times the collection has been viewed.</p>
+            </div>
+            <div class="header-image">
+                <img src="/img/what-is-refhoster" alt="Person interacting with interface" />
+            </div>
+        </div>
+        
+        <div class="problem">
+            <div class="problem-image">
+                <img src="/img/problem" alt="Person working at computer" />
+            </div>
+            <div class="problem-text">
+                <h2>The problem</h2>
+                <p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video. It's so easy to lose stuff, and writing it all out manually is just a huge hassle. That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
+            </div>
+        </div>
+          <div class="alert alert-danger">
+    <strong>Warning!</strong> Link collections will be deleted after six months of inactivity.
+
+  </div>
+</div>
+        <div class="feedback">
+            <h2>Share Your Feedback!</h2>
+            <p>Help us improving! Your feedback is crucial for us to understand your needs better. Whether it's praise, criticism, or suggestions for improvement, we appreciate every comment you have.</p>
+            <p>Thank you for your support!</p>
+            <button class="button">Give feedback</button>
+        </div>
+    </div>
+  <div class="container">
+    <form method="post" action="https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec">
+      <div style="text-align: left;">
+  <h2>Updates</h2><p>Stay up to date.</p>
+      </div>
+      <textarea name="newsletter" rows="1" placeholder="Email"></textarea>
+      <input type="submit" value="Subscribe" id="submit">
+    </form>
+  </div>
+    <footer>
+        <p>&copy; 2024 Refhoster. All rights reserved.</p>
+    </footer>
 </body>
+  
+  <script>
+    const form = document.forms[0];
+    const submitButton = document.getElementById('submit');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      submitButton.value = 'Sent!';
+      submitButton.disabled = true;
+
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec";
+      const formData = new FormData(form);
+
+      fetch(scriptURL, {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => {
+          alert("Your message has been sent successfully.");
+          form.reset();
+          submitButton.value = 'Send';
+          submitButton.disabled = false;
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          submitButton.value = 'Send';
+          submitButton.disabled = false;
+        });
+    });
+  </script>
 </html>
