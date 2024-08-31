@@ -248,3 +248,59 @@
         <p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video. It's so easy to lose stuff, and writing it all out manually is just a huge hassle. That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
     </div>
 </div>
+
+        <div class="alert alert-danger">
+            <strong>Warning!</strong> Link collections will be deleted after six months of inactivity.
+        </div>
+    </div>
+    <div class="blue-section">
+        <div class="feedback">
+            <h2>Share Your Feedback!</h2>
+            <p>Help us improve! Your feedback is crucial for us to understand your needs better. Whether it's praise, criticism, or suggestions, we want to hear from you.</p>
+            <button class="button">Submit Feedback</button>
+        </div>
+    </div>
+    <div class="container">
+        <form method="post" action="https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec">
+            <div style="text-align: left;">
+                <h2>Updates</h2>
+                <p>Stay up to date.</p>
+            </div>
+            <textarea name="newsletter" rows="1" placeholder="Email"></textarea>
+            <input type="submit" value="Subscribe" id="submit">
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2023 Refhoster. All rights reserved.</p>
+    </footer>
+    <script>
+        const form = document.forms[0];
+        const submitButton = document.getElementById('submit');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitButton.value = 'Sent!';
+            submitButton.disabled = true;
+
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec";
+            const formData = new FormData(form);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                alert("Your message has been sent successfully.");
+                form.reset();
+                submitButton.value = 'Send';
+                submitButton.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                submitButton.value = 'Send';
+                submitButton.disabled = false;
+            });
+        });
+    </script>
+</body>
+</html>
