@@ -32,6 +32,7 @@
             justify-content: center;
             align-items: center;
             text-align: left;
+            margin: 20px; /* Added margin to hero section */
         }
         p {
             text-align: left;
@@ -175,6 +176,9 @@
             .header-image, .problem-image {
                 text-align: left; /* Links ausrichten auf größeren Bildschirmen */
             }
+            .problem {
+                flex-direction: column; /* Sicherstellen, dass das Bild unter dem Text ist */
+            }
         }
     </style>
 </head>
@@ -205,12 +209,12 @@
         </div>
         
         <div class="problem">
-            <div class="problem-image">
-                <img src="/img/problem.png" alt="Person working at computer" style="width: 300px; height: 200px;"/>
-            </div>
             <div class="problem-text">
                 <h2>The problem</h2>
                 <p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video. It's so easy to lose stuff, and writing it all out manually is just a huge hassle. That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
+            </div>
+            <div class="problem-image">
+                <img src="/img/problem.png" alt="Person working at computer" style="width: 300px; height: 200px;"/>
             </div>
         </div>
         <div class="alert alert-danger">
@@ -268,3 +272,4 @@
     </script>
 </body>
 </html>
+
