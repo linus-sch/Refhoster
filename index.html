@@ -32,7 +32,7 @@
             justify-content: center;
             align-items: center;
             text-align: left;
-            margin: 20px; /* Added margin to hero section */
+            padding: 20px; /* Added padding for spacing */
         }
         p {
             text-align: left;
@@ -59,6 +59,10 @@
             margin: 20px 0;
             cursor: pointer;
             border-radius: 4px;
+            transition: transform 0.2s; /* Transition for scaling effect */
+        }
+        .button:hover {
+            transform: scale(1.05); /* Scale button on hover */
         }
         .subtext {
             color: black;
@@ -109,6 +113,10 @@
             border-radius: 5px;
             font-size: 18px; /* Ensure uniform font size */
             margin: 10px 0; /* Add margin for spacing */
+            transition: transform 0.2s; /* Transition for scaling effect */
+        }
+        .feedback .button:hover {
+            transform: scale(1.05); /* Scale button on hover */
         }
         footer {
             background-color: #f0f0f0;
@@ -162,10 +170,11 @@
             padding: 10px;
             border: none;
             border-radius: 5px;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.2s; /* Added transition for scaling */
         }
         #submit:hover {
             background-color: #5271FF;
+            transform: scale(1.05); /* Scale button on hover */
         }
 
         /* Responsive Styles */
