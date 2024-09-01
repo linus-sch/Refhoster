@@ -378,7 +378,7 @@ submitBtn.addEventListener('click', (e) => {
       // Add event listener to copy button
       const copyBtn = document.getElementById('copy-btn');
       copyBtn.addEventListener('click', () => {
-        const url = `https://refhoster.com/View?pin=${code}`;
+        const url = `https://refhoster.com/view?pin=${code}`;
         navigator.clipboard.writeText(url).then(() => {
           copyBtn.style.backgroundColor = '#5271FF';
           setTimeout(() => {
