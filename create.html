@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Refhoster - Create Link Collection</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-      <!-- Google tag (gtag.js) -->
-       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDFP31GGTT"></script>
-      <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
-
-       <script>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Refhoster - Create Link Collection</title>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QDFP31GGTT"></script>
+		<link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+		<script>
          window.dataLayer = window.dataLayer || [];
          function gtag(){dataLayer.push(arguments);}
          gtag('js', new Date());
 
          gtag('config', 'G-QDFP31GGTT');
-        </script>
-  <style>
+        
+		</script>
+		<style>
     /* Global Styles */
     body {
       font-family: 'Montserrat', sans-serif;
@@ -212,75 +211,82 @@
         #copy-btn:hover {
             background-color: #5271FF; 
         }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <center>
-      <a href="/">
-        <img src="https://i.ibb.co/27Mb1xw/IMG-8363.jpg" alt="Refhoster Logo" style="width: 30%; max-width: 1700px; height: auto; margin: 0 auto;">
-      </a>
-      <hr style="height: 1px; background-color: #E0E0E0; border: none;">
-    </center>
-    <h2>Create new link group</h2>
-    <p>Make sure you read our <a href="/therms-of-use">therms of use</a></p>
-    <p>You can access your sources later by scanning the QR code you'll receive or by opening the link that will also be provided. </p>
-    <form class="link-input" id="link-form">
-      <label for="collection-title">Collection Title:</label>
-      <input type="text" id="collection-title" name="collection-title">
-      <label for="collection-subtitle">Collection Subtitle:</label>
-      <input type="text" id="collection-subtitle" name="collection-subtitle">
-      <div class="link-input">
-        <label for="title1">Title Nr.1:</label>
-        <input type="text" id="title1" name="title1">
-        <label for="link1">Link Nr.1:</label>
-        <input type="text" id="link1" name="link1">
-      </div>
-      <div class="link-input">
-        <label for="title2">Title Nr.2:</label>
-        <input type="text" id="title2" name="title2">
-        <label for="link2">Link Nr.2:</label>
-        <input type="text" id="link2" name="link2">
-      </div>
-      <div class="link-input">
-        <label for="title3">Title Nr.3:</label>
-        <input type="text" id="title3" name="title3">
-        <label for="link3">Link Nr.3:</label>
-        <input type="text" id="link3" name="link3">
-      </div>
-      <div id="dynamic-links"></div>
-    </form>
-
-Link collections will be deleted after six months of inactivity.
-
-<br>     <p></p><br>
-<label for="email">Email (optional)</label>
-        <input type="email" id="email" style="width: 95%; padding: 10px; margin-bottom: 20px; border: 1px solid #e0e0e0; border-radius: 5px;">
-
-    <hr style="height: 1px; background-color: #E0E0E0; border: none;">
-    <p></p><br>
-    <div style="text-align: right;">
-      <button id="add-link-btn" style="background-color: #F8F9FA; color: #202124; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Add Link</button>
-      <button id="submit-btn" style="background-color: #5271FF; color: #fff; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Continue</button>
-
-      <div class="succes-popup" id="popup">
-        <div id="success-message" style="text-align: center; font-size: large; color: green;"></div>
-      </div>
-    </div>
-  </div>
-  <div style="text-align: center;">
-
-<a href="/feedback" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Feedback</a>
-<a href="/view?pin=1234" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Demo</a> 
-  </div>
-  <p></p><br>
-  <center>
-    <small style="color: 707070; font-size: small;">©2024 Refhoster</small><br>
-  </center>
-  <p></p><br>
-  <p></p><br>
-  <p></p><br>
-  <script>
+  
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<center>
+				<a href="/">
+					<img src="https://i.ibb.co/27Mb1xw/IMG-8363.jpg" alt="Refhoster Logo" style="width: 30%; max-width: 1700px; height: auto; margin: 0 auto;">
+				</a>
+				<hr style="height: 1px; background-color: #E0E0E0; border: none;">
+			</center>
+			<h2>Create new link group</h2>
+			<p>Make sure you read our
+				<a href="/therms-of-use">therms of use</a>
+			</p>
+			<p>You can access your sources later by scanning the QR code you'll receive or by opening the link that will also be provided.
+			</p>
+			<form class="link-input" id="link-form">
+				<label for="collection-title">Collection Title:</label>
+				<input type="text" id="collection-title" name="collection-title">
+				<label for="collection-subtitle">Collection Subtitle:</label>
+				<input type="text" id="collection-subtitle" name="collection-subtitle">
+				<div class="link-input">
+					<label for="title1">Title Nr.1:</label>
+					<input type="text" id="title1" name="title1">
+					<label for="link1">Link Nr.1:</label>
+					<input type="text" id="link1" name="link1">
+				</div>
+				<div class="link-input">
+					<label for="title2">Title Nr.2:</label>
+					<input type="text" id="title2" name="title2">
+					<label for="link2">Link Nr.2:</label>
+					<input type="text" id="link2" name="link2">
+				</div>
+				<div class="link-input">
+					<label for="title3">Title Nr.3:</label>
+					<input type="text" id="title3" name="title3">
+					<label for="link3">Link Nr.3:</label>
+					<input type="text" id="link3" name="link3">
+				</div>
+				<div id="dynamic-links"></div>
+			</form>
+			Link collections will be deleted after six months of inactivity.
+			<br>
+			<p></p>
+			<br>
+			<label for="email">Email (optional)</label>
+			<input type="email" id="email" style="width: 95%; padding: 10px; margin-bottom: 20px; border: 1px solid #e0e0e0; border-radius: 5px;">
+			<hr style="height: 1px; background-color: #E0E0E0; border: none;">
+			<p></p>
+			<br>
+			<div style="text-align: right;">
+				<button id="add-link-btn" style="background-color: #F8F9FA; color: #202124; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Add Link</button>
+				<button id="submit-btn" style="background-color: #5271FF; color: #fff; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Continue</button>
+				<div class="succes-popup" id="popup">
+					<div id="success-message" style="text-align: center; font-size: large; color: green;"></div>
+				</div>
+			</div>
+		</div>
+		<div style="text-align: center;">
+			<a href="/feedback" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Feedback</a>
+			<a href="/view?pin=1234" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Demo</a>
+		</div>
+		<p></p>
+		<br>
+		<center>
+			<small style="color: 707070; font-size: small;">©2024 Refhoster</small>
+			<br>
+		</center>
+		<p></p>
+		<br>
+		<p></p>
+		<br>
+		<p></p>
+		<br>
+		<script>
 const form = document.getElementById('link-form');
 const addLinkBtn = document.getElementById('add-link-btn');
 const submitBtn = document.getElementById('submit-btn');
@@ -406,6 +412,7 @@ submitBtn.addEventListener('click', (e) => {
     submitBtn.textContent = 'Publish';
   });
 });
-  </script>
-</body>
+  
+		</script>
+	</body>
 </html>
