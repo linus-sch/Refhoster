@@ -1,21 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <title>Refhoster - View link collection</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Google tag (gtag.js) -->
-       <script async src="https://www.googletagmanager.com/gtag/js?id=G-QDFP31GGTT"></script>
-        <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
-
-       <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-
-         gtag('config', 'G-QDFP31GGTT');
-        </script>
-    <style>
+	<head>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&amp;display=swap" rel="stylesheet">
+		<title>Refhoster - View link collection</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QDFP31GGTT"></script>
+		<link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+		<style>
         body {
             font-family: 'Montserrat', sans-serif;
             margin: 0;
@@ -116,29 +107,81 @@
         .enter-pin-button:hover {
             background-color: #1B72E8;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div id="links-container"></div>
-        <div id="error-message" class="error-message"></div>
-        <a id="enter-pin-button" class="enter-pin-button" href="/Enter-Pin" style="display: none;">Enter a Pin</a>
-    </div>
 
-    <div style="text-align: center;">
-        <a href="/create" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Create link collection</a>
-        <a href="/feedback" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Feedback</a>
-    </div>
-    <p></p><br>
-    <center>
-        <small style="color: #707070; font-size: small;">©2024 Refhoster</small><br>
-    </center>
-    <p></p><br>
+        .source-id-input-box {
+            width: 94%;
+            height: 20px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 10px;
+                font-family: 'Montserrat', sans-serif; /* Schriftart hinzufügen */
+                    font-size: 15px; /* Schriftgröße anpassen */
 
-    <script>
+
+            margin-top: 25px;
+        }
+        
+        .source-id-input-box:focus {
+            border-color: #007bff;
+            box-shadow: 0 2px 0 0 #007bff;
+        }
+        
+        .source-id-input-box::placeholder {
+            color: #ccc;
+        }
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #5271FF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif; /* Schriftart hinzufügen */
+    font-size: 15px; /* Schriftgröße anpassen */
+}
+
+        
+        button[type="submit"]:hover {
+            background-color: #3e57c9;
+        }
+    
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="links-container"></div>
+			<div id="error-message" class="error-message"></div>
+			<form id="pin-form" style="display: none;">
+				<input id="pin-input" class="source-id-input-box" type="text" placeholder="1234" maxlength="4" required="">
+				<button type="submit">Submit</button>
+			</form>
+			<a id="enter-pin-button" class="enter-pin-button" href="/Enter-Pin" style="display: none;">Enter a Pin</a>
+		</div>
+		<div style="text-align: center;">
+			<a href="/create" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Create link collection</a>
+			<a href="/feedback" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Feedback</a>
+		</div>
+		<p></p>
+		<br>
+		<center>
+			<small style="color: #707070; font-size: small;">©2024 Refhoster</small>
+			<br>
+		</center>
+		<p></p>
+		<br>
+		<script>
         const linksContainer = document.getElementById('links-container');
         const errorMessageContainer = document.getElementById('error-message');
         const enterPinButton = document.getElementById('enter-pin-button');
+        const pinForm = document.getElementById('pin-form');
+        const pinInput = document.getElementById('pin-input');
 
         // Funktion zum Abrufen des URL-Parameters
         function getUrlParameter(name) {
@@ -205,7 +248,7 @@
             });
 
             linksContainer.style.display = 'block';
-            enterPinButton.style.display = 'none'; // Verstecke den Button, wenn Links angezeigt werden
+            pinForm.style.display = 'none'; // Verstecke das Formular, wenn Links angezeigt werden
         }
 
         // Funktion zum Anzeigen von Fehlern
@@ -213,7 +256,7 @@
             errorMessageContainer.textContent = message;
             errorMessageContainer.style.display = 'block';
             linksContainer.style.display = 'none';
-            enterPinButton.style.display = 'block'; // Zeige den Button, wenn ein Fehler auftritt
+            pinForm.style.display = 'block'; // Zeige das Formular, wenn ein Fehler auftritt
         }
 
         // Hauptfunktion, die beim Laden der Seite ausgeführt wird
@@ -225,6 +268,18 @@
                 displayError('Invalid or missing PIN. Please provide a valid 4-digit PIN in the URL or enter a PIN manually.');
             }
         };
-    </script>
-</body>
+
+        // Event-Listener für das Absenden des Formulars
+        pinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const enteredPin = pinInput.value.trim();
+            if (enteredPin.length === 4) {
+                window.location.search = `?pin=${enteredPin}`;
+            } else {
+                displayError('Please enter a valid 4-digit PIN.');
+            }
+        });
+    
+		</script>
+	</body>
 </html>
