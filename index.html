@@ -212,6 +212,24 @@
                 padding: 20px; /* Padding anpassen, um den gleichen Abstand zu den Rändern zu haben */
             }
         }
+	            footer {
+            background-color: #f0f0f0; /* Hintergrundfarbe des Footers */
+            padding: 20px; /* Innenabstand */
+            text-align: center; /* Zentriert den Text im Footer */
+            position: relative; /* Ermöglicht die Positionierung des GitHub-Icons */
+        }
+        .github-link {
+            position: absolute; /* Positioniert das GitHub-Icon absolut */
+            bottom: 10px; /* Abstand von unten */
+            right: 10px; /* Abstand von rechts */
+            display: flex; /* Flexbox für die Ausrichtung */
+            align-items: center; /* Vertikale Zentrierung */
+        }
+        .github-link img {
+            width: 24px; /* Breite des Bildes */
+            height: 24px; /* Höhe des Bildes */
+            margin-right: 5px; /* Abstand zwischen Bild und Text */
+        }e
     </style>
 </head>
 <body>
@@ -273,6 +291,10 @@
     </div>
     <footer>
         <p>© 2023 Refhoster. All rights reserved.</p>
+        <a href="https://github.com" class="github-link">
+            <img src="https://via.placeholder.com/24" alt="GitHub Logo">
+            <span>GitHub</span>
+        </a>
     </footer>
     <script>
         const form = document.forms[0];
