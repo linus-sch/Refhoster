@@ -1,18 +1,19 @@
-<!DOCTYPE html>
+Das paallax bild  soll 70% der bildschirmfläche ausfüllen. und immer die ganze höhe des bildes soll sichtbar sein. kein croping. Und der text der feedbacks section soll gleichen abstand zu den rändern haben wie der andere text auf der webseite. Und das bild der the problem section soll in mobile unter dem absatz sein: <!DOCTYPE html>
 <html lang="en">
-<head>
-    <style>
+	<head>
+		<style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
-    <title>Refhoster</title>
-    <style>
+    
+		</style>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+		<link rel="icon" type="image/png" href="img/favicon.png" sizes="32x32">
+		<title>Refhoster</title>
+		<style>
         body, html {
             font-family: Inter, sans-serif;
             margin: 0;
@@ -20,9 +21,9 @@
             color: #333;
             height: 100%;
         }
-        ::selection {
-            background: #5271FF; 
-            color: #ffffff;
+            ::selection {
+       background: #5271FF; 
+       color: #ffffff;
         }
         .hero {
             background-image: url('/img/hero-banner.png');
@@ -30,13 +31,13 @@
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
-            background-size: contain; /* Bildgröße anpassen, damit nichts abgeschnitten wird */
+            background-size: cover;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: left;
-            padding: 20px; 
+            padding: 20px; /* Added padding for spacing */
         }
         p {
             text-align: left;
@@ -63,23 +64,23 @@
             margin: 20px 0;
             cursor: pointer;
             border-radius: 4px;
-            transition: transform 0.2s; 
+            transition: transform 0.2s; /* Transition for scaling effect */
         }
         .button:hover {
-            transform: scale(1.05); 
+            transform: scale(1.05); /* Scale button on hover */
         }
         .subtext {
             color: black;
             font-size: 20px;
         }
         .container {
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 20px; 
+            max-width: 800px; /* Maximalbreite auf 800px setzen */
+            margin: 0 auto; /* Zentriert den Container */
+            padding: 20px; /* Innenabstand */
         }
         .header, .problem {
             display: flex;
-            flex-direction: column; 
+            flex-direction: column; /* Standardmäßig vertikal anordnen */
             margin-bottom: 40px;
         }
         .header-text, .problem-text {
@@ -87,8 +88,8 @@
         }
         .header-image, .problem-image {
             flex: 1;
-            text-align: center; 
-            margin: 20px 0; 
+            text-align: center; /* Zentriert das Bild */
+            margin: 20px 0; /* Abstand zwischen Bild und Text */
         }
         .header h2, .problem h2 {
             color: #4285F4;
@@ -99,11 +100,10 @@
             border-radius: 8px;
             color: white;
             padding: 40px;
-            text-align: center; 
+            text-align: center; /* Center the text */
             width: 100%; 
-            max-width: 800px; 
-            margin: 20px auto; 
-            box-sizing: border-box; /* Added to ensure padding is included in width */
+            max-width: 800px; /* Set max width */
+            margin: 20px auto; /* Center the feedback section */
         }
         .blue-section {
             background-color: #4285F4;
@@ -113,15 +113,15 @@
             background-color: white;
             color: #4285F4;
             cursor: pointer;
-            padding: 10px 30px; 
+            padding: 10px 30px; /* Ensure uniform padding */
             border: none;
             border-radius: 5px;
-            font-size: 18px;
-            margin: 10px 0; 
-            transition: transform 0.2s; 
+            font-size: 18px; /* Ensure uniform font size */
+            margin: 10px 0; /* Add margin for spacing */
+            transition: transform 0.2s; /* Transition for scaling effect */
         }
         .feedback .button:hover {
-            transform: scale(1.05); 
+            transform: scale(1.05); /* Scale button on hover */
         }
         footer {
             background-color: #f0f0f0;
@@ -175,92 +175,140 @@
             padding: 10px;
             border: none;
             border-radius: 5px;
-            transition: background-color 0.3s, transform 0.2s; 
+            transition: background-color 0.3s, transform 0.2s; /* Added transition for scaling */
         }
         #submit:hover {
             background-color: #5271FF;
-            transform: scale(1.05); 
+            transform: scale(1.05); /* Scale button on hover */
         }
 
-        /* Responsive Styles */
-        @media (min-width: 768px) {
-            .header, .problem {
-                flex-direction: row; 
-            }
-            .header-image, .problem-image {
-                text-align: left; 
-            }
-            .problem {
-                flex-direction: row; 
-            }
-            .problem-image {
-                flex: 1; 
-                text-align: left; 
-                margin: 20px;
-            }
-            .problem-text {
-                flex: 2; 
-            }
-        }
+/* Responsive Styles */
+@media (min-width: 768px) {
+    .header, .problem {
+        flex-direction: row; /* Nebeneinander auf größeren Bildschirmen */
+    }
+    .header-image, .problem-image {
+        text-align: left; /* Links ausrichten auf größeren Bildschirmen */
+    }
+    .problem {
+        flex-direction: row; /* Bild und Text nebeneinander auf größeren Bildschirmen */
+    }
+    .problem-image {
+        flex: 1; /* Bild nimmt weniger Platz ein */
+        text-align: left; /* Bild links ausrichten */
+        margin: 20px;
+    }
+    .problem-text {
+        flex: 2; /* Text nimmt mehr Platz ein */
+    }
+}
 
-        @media (max-width: 767px) {
-            .problem {
-                flex-direction: column; 
-            }
-            .problem-image {
-                order: 2; /* Bild unter den Text stellen */
-            }
-            .problem-text {
-                order: 1; /* Text über dem Bild */
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="hero">
-        <img src="/img/refhoster-logo.png" alt="Refhoster Logo" class="logo">
-        <h1>Host your references on a QR code</h1>
-        <a href="/create">
-            <button class="button">Get Started</button>
-        </a>
-        <p class="subtext">100% free, no signup</p>
-    </div>
-    <div class="container">
-        <div class="header">
-            <div class="header-text">
-                <h2>What's Refhoster?</h2>
-                <p>With Refhoster, you can save the sources and links for your presentation or video on a QR code.</p>
-                <p>All you gotta do is enter all your links with their titles into a form, no sign-up needed, and it's free.</p>
-                <p>Then, anyone can scan the QR code you get. They'll see all the links with their titles and subtitles in the collection. Plus, everyone can see how many times the collection has been viewed.</p>
-                <a href="https://refhoster.com/view?pin=1234">
-                    <button class="button">View Demo</button>
-                </a>
-            </div>
-            <div class="header-image">
-                <img src="/img/what-is-refhoster.jpeg" alt="Person interacting with interface" style="width: 300px; height: 200px;">
-            </div>
-        </div>
-        <div class="problem">
-            <div class="problem-text">
-                <h2>The problem</h2>
-                <p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video. It's so easy to lose stuff, and writing it all out manually is just a huge hassle. That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
-            </div>
-            <div class="problem-image">
-                <img src="/img/problem.jpg" alt="Confused person looking at multiple documents" style="width: 100%; height: auto;">
-            </div>
-        </div>
-    </div>
-    <div class="blue-section">
-        <div class="feedback">
-            <h2>What people are saying</h2>
-            <p>"Refhoster has saved me so much time, I can't even begin to explain how much easier my work is now!"</p>
-            <p>"The simplicity of it all is what gets me. No more writing out endless lists of sources."</p>
-            <button class="button">Read More Reviews</button>
-        </div>
-    </div>
-    <footer>
-        <p>&copy; 2024 Refhoster. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+@media (max-width: 767px) {
+    .problem {
+        flex-direction: column; /* Sicherstellen, dass das Bild unter dem Text ist */
+    }
+}
+
+
+@media (max-width: 767px) {
+    .problem {
+        flex-direction: column; /* Sicherstellen, dass das Bild unter dem Text ist */
+    }
+}
+
+    
+		</style>
+	</head>
+	<body>
+		<div class="hero">
+			<img src="/img/refhoster-logo.png" alt="Refhoster Logo" class="logo">
+			<h1>Host your references on a QR code</h1>
+			<a href="/create">
+				<button class="button">Get Started</button>
+			</a>
+			<p class="subtext">100% free, no signup</p>
+		</div>
+		<div class="container">
+			<div class="header">
+				<div class="header-text">
+					<h2>What's Refhoster?</h2>
+					<p>With Refhoster, you can save the sources and links for your presentation or video on a QR code.</p>
+					<p>All you gotta do is enter all your links with their titles into a form, no sign-up needed, and it's free.</p>
+					<p>Then, anyone can scan the QR code you get. They'll see all the links with their titles and subtitles in the collection. Plus, everyone can see how many times the collection has been viewed.</p>
+					<a href="https://refhoster.com/view?pin=1234">
+						<button class="button">View Demo</button>
+					</a>
+				</div>
+				<div class="header-image">
+					<img src="/img/what-is-refhoster.jpeg" alt="Person interacting with interface" style="width: 300px; height: 200px;">
+				</div>
+			</div>
+			<div class="problem">
+				<div class="problem-image">
+					<img src="/img/problem.png" alt="Person working at computer" style="width: 300px; height: 200px;">
+				</div>
+				<div class="problem-text">
+					<h2>The problem</h2>
+					<p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video. It's so easy to lose stuff, and writing it all out manually is just a huge hassle. That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
+				</div>
+			</div>
+			<div class="alert alert-danger">
+				<strong>Warning!</strong>
+				Link collections will be deleted after six months of inactivity.
+			</div>
+		</div>
+		<div class="blue-section">
+			<div class="feedback">
+				<h2>Share Your Feedback!</h2>
+				<p>Help us improve! Your feedback is crucial for us to understand your needs better. Whether it's praise, criticism, or suggestions, we want to hear from you.</p>
+				<a href="/feedback">
+					<button class="button">Submit Feedback</button>
+				</a>
+			</div>
+		</div>
+		<div class="container">
+			<form method="post" action="https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec">
+				<div style="text-align: left;">
+					<h2>Updates</h2>
+					<p>Stay up to date.</p>
+				</div>
+				<textarea name="newsletter" rows="1" placeholder="Email"></textarea>
+				<input type="submit" value="Subscribe" id="submit">
+			</form>
+		</div>
+		<footer>
+			<p>© 2023 Refhoster. All rights reserved.</p>
+		</footer>
+		<script>
+        const form = document.forms[0];
+        const submitButton = document.getElementById('submit');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitButton.value = 'Sent!';
+            submitButton.disabled = true;
+
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxbL4qbdXisOaycJ30pGwBlbLsRfcutsyEXHTFiSmI1GbcOAdfi8DuhAz8tjEVBwLJFoQ/exec";
+            const formData = new FormData(form);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                alert("Your message has been sent successfully.");
+                form.reset();
+                submitButton.value = 'Send';
+                submitButton.disabled = false;
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                submitButton.value = 'Send';
+                submitButton.disabled = false;
+            });
+        });
+    
+		</script>
+	</body>
+</html> 
 
