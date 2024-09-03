@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+  <loc>https://refhoster.com/</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://refhoster.com/therms-of-use</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://refhoster.com/feedback</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://refhoster.com/view?pin=1234</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://refhoster.com/create</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://refhoster.com/cdn-cgi/l/email-protection#a2c1cdccd6c3c1d68fccc7d6e2ced7cfcbc1cdcd8cc1cdcf</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>https://refhoster.com/Enter-Pin</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc></loc>
+  <changefreq>weekly</changefreq>
+</url>
+</urlset>
