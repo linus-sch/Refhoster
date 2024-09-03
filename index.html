@@ -43,20 +43,28 @@
             background: #5271FF;
             color: #ffffff;
         }
-        .hero {
-            background-image: url('/img/hero-banner.png');
-            height: 70vh;
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: left;
-            padding: 20px;
-        }
+.hero {
+    background-image: url('/img/hero-banner.png');
+    height: 100vh; /* Höhe auf 100vh setzen */
+    background-position: center; /* Position anpassen */
+    background-repeat: no-repeat;
+    background-size: cover; /* Bild soll die Fläche abdecken */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+}
+
+/* Media Query für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .hero {
+        height: 80vh; /* Höhe anpassen für kleinere Bildschirme */
+        background-position: center; /* Position anpassen */
+    }
+}
+
         p {
             text-align: left;
         }
