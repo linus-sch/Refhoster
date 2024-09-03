@@ -71,14 +71,18 @@
             font-weight: bold;
         }
 
-        .link-container {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f9f9f9;
-            border-left: 5px solid #5271FF;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+.link-container {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-left: 5px solid #5271FF;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden; /* Verhindert, dass der Inhalt über die Box hinausgeht */
+    word-wrap: break-word; /* Bricht lange Wörter um */
+    white-space: normal; /* Normaler Zeilenumbruch */
+}
+
 
         .link-container h4 {
             margin: 0;
