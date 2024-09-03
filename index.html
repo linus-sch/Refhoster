@@ -44,27 +44,28 @@
             background: #5271FF;
             color: #ffffff;
         }
-.hero {
-    background-image: url('/img/hero-banner.png');
-    height: 100vh; /* Höhe auf 100vh setzen */
-    background-position: center; /* Position anpassen */
-    background-repeat: no-repeat;
-    background-size: cover; /* Bild soll die Fläche abdecken */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
-    padding: 20px;
-}
+        .hero {
+            background-image: url('https://refhoster.com/img/hero-banner.png');
+            height: 100vh; /* Höhe auf 100vh setzen */
+            background-attachment: fixed; /* Parallax-Effekt aktivieren */
+            background-position: center; /* Position anpassen */
+            background-repeat: no-repeat;
+            background-size: cover; /* Bild soll die Fläche abdecken */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            padding: 20px;
+        }
 
-/* Media Query für kleinere Bildschirme */
-@media (max-width: 768px) {
-    .hero {
-        height: 80vh; /* Höhe anpassen für kleinere Bildschirme */
-        background-position: center; /* Position anpassen */
-    }
-}
+        /* Media Query für kleinere Bildschirme */
+        @media (max-width: 768px) {
+            .hero {
+                height: 80vh; /* Höhe anpassen für kleinere Bildschirme */
+                background-position: center; /* Position anpassen */
+            }
+        }
 
         p {
             text-align: left;
@@ -205,8 +206,7 @@
             transition: background-color 0.3s, transform 0.2s;
         }
         #submit:hover {
-            background-color: #5271FF;
-            transform: scale(1.05);
+            background-color: #346dc9;
         }
         @media (min-width: 768px) {
             .header, .problem {
@@ -245,7 +245,7 @@ footer {
 
 .footer-divider {
     border: none;
-    border-top: 1px solid #939393; 
+    border-top: 2px solid #939393; 
     margin: 10px 0; /* Abstand über und unter der Linie */
 }
 
@@ -296,9 +296,9 @@ footer {
         <div class="header">
             <div class="header-text">
                 <h2>What's Refhoster?</h2>
-                <p>With Refhoster, you can save the sources and links for your presentation or video on a QR code.</p>
-                <p>All you gotta do is enter all your links with their titles into a form, no sign-up needed, and it's free.</p>
-                <p>Then, anyone can scan the QR code you get. They'll see all the links with their titles and subtitles in the collection. Plus, everyone can see how many times the collection has been viewed.</p>
+                <p>With Refhoster, you can save the sources and links for your presentation or video on a QR code.
+                <br>All you gotta do is enter all your links with their titles into a form, no sign-up needed, and it's free.
+                <br>Then, anyone can scan the QR code you get. They'll see all the links with their titles and subtitles in the collection. Plus, everyone can see how many times the collection has been viewed.</p>
                 <a href="https://refhoster.com/view?pin=1234">
                     <button class="button">View Demo</button>
                 </a>
@@ -313,7 +313,7 @@ footer {
             </div>
             <div class="problem-text">
                 <h2>The problem</h2>
-                <p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video. It's so easy to lose stuff, and writing it all out manually is just a huge hassle. That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
+                <p>Keeping track of all your sources and links can be a real pain, especially when you're putting together a presentation or video.<br> It's so easy to lose stuff, and writing it all out manually is just a huge hassle.<br> That's where Refhoster comes in - it lets you easily collect all your references in one place and share them with a simple QR code.</p>
             </div>
         </div>
         <div class="alert alert-danger">
