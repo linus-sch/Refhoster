@@ -206,6 +206,7 @@ button[type="submit"] {
                     displayError('Error fetching data. Please try again.');
                 });
         }
+	document.title = data.collectionTitle; // Setze den Titel des Tabs
 
         // Funktion zum Anzeigen der Links
         function displayLinks(data) {
