@@ -81,7 +81,6 @@
         }
         .button {
             background-color: #4285F4;
-            border: none;
             color: white;
             padding: 10px 30px;
             text-align: center;
@@ -90,7 +89,8 @@
             font-size: 18px;
             margin: 20px 0;
             cursor: pointer;
-            border-radius: 6px;
+            border: 2px solid #346dc9;
+            border-radius: 7px;
             transition: transform 0.2s;
         }
         .button:hover {
@@ -141,8 +141,8 @@
             color: #4285F4;
             cursor: pointer;
             padding: 10px 30px;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid #346dc9;
+            border-radius: 7px;
             font-size: 18px;
             margin: 10px 0;
             transition: transform 0.2s;
@@ -200,8 +200,8 @@
             cursor: pointer;
             width: 100%;
             padding: 10px;
-            border: none;
-            border-radius: 5px;
+            border: 2px solid #346dc9;
+            border-radius: 7px;   
             transition: background-color 0.3s, transform 0.2s;
         }
         #submit:hover {
@@ -232,24 +232,54 @@
                 text-align: center; /* Center the image */
             }
         }
-        footer {
-            background-color: #f0f0f0;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-        }
-        .github-link {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .github-link img {
-            width: 24px;
-            height: 24px;
-            margin-right: 5px;
-        }
+footer {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.footer-content {
+    margin-bottom: 10px;
+}
+
+.footer-divider {
+    border: none;
+    border-top: 1px solid #333; /* Dunkelgraue Trennlinie */
+    margin: 10px 0; /* Abstand über und unter der Linie */
+}
+
+.footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Abstand zwischen den Links */
+}
+
+.footer-link {
+    color: #333; /* Linkfarbe */
+    transition: color 0.3s;
+    text-decoration: none; /* Keine Textdekoration */
+}
+
+.footer-link:hover {
+    color: #007bff; /* Hover-Farbe */
+    text-decoration: none; /* Keine Textdekoration */
+}
+
+.github-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.github-link img {
+    width: 24px;
+    height: 24px;
+}
+
+
     </style>
 </head>
 <body>
@@ -309,13 +339,22 @@
             <input type="submit" value="Subscribe" id="submit">
         </form>
     </div>
-    <footer>
+<footer>
+    <div class="footer-content">
         <p>© 2023 Refhoster. All rights reserved.</p>
-        <a href="https://github.com/linus-sch/Refhoster" class="github-link">
-            <img src="/img/github-icon.png" alt="GitHub">
-            <span></span>
-        </a>
-    </footer>
+        <hr class="footer-divider">
+        <nav class="footer-nav">
+            <a href="/contact" class="footer-link">Contact</a>
+            <a href="/privacy" class="footer-link">Privacy Policy</a>
+            <a href="/terms" class="footer-link">Terms of Use</a>
+        </nav>
+    </div>
+    <a href="https://github.com/linus-sch/Refhoster" class="github-link">
+        <img src="/img/github-icon.png" alt="GitHub">
+    </a>
+</footer>
+
+
     <script>
         const form = document.forms[0];
         const submitButton = document.getElementById('submit');
