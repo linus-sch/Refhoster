@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://refhoster.com/sitemap.xml
