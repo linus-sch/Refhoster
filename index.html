@@ -44,28 +44,59 @@
             background: #5271FF;
             color: #ffffff;
         }
-        .hero {
-            background-image: url('https://refhoster.com/img/hero-banner.png');
-            height: 60%; /* Höhe auf 100vh setzen */
-            background-attachment: fixed; /* Parallax-Effekt aktivieren */
-            background-position: center; /* Position anpassen */
-            background-repeat: no-repeat;
-            background-size: cover; /* Bild soll die Fläche abdecken */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: left;
-            padding: 20px;
-        }
+.hero {
+    background-image: url('https://refhoster.com/img/hero-banner.png');
+    height: 100vh; /* Volle Bildschirmhöhe */
+    background-position: center center; /* Zentriert das Bild horizontal und vertikal */
+    background-repeat: no-repeat;
+    background-size: cover; /* Deckt die gesamte Fläche ab */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+    position: relative; /* Für absolute Positionierung von Inhalten */
+}
 
-        /* Media Query für kleinere Bildschirme */
-        @media (max-width: 768px) {
-            .hero {
-                height: 80vh; /* Höhe anpassen für kleinere Bildschirme */
-                background-position: center; /* Position anpassen */
-            }
-        }
+/* Überlagerung hinzufügen, um Text besser lesbar zu machen */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5); /* Halbtransparentes Weiß */
+    z-index: 1;
+}
+
+/* Stellen Sie sicher, dass der Inhalt über der Überlagerung liegt */
+.hero > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Anpassungen für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .hero {
+        background-position: center center; /* Zentriert auf kleineren Bildschirmen */
+    }
+}
+
+/* Zusätzliche Anpassungen für sehr breite Bildschirme */
+@media (min-aspect-ratio: 16/9) {
+    .hero {
+        background-size: 100% auto; /* Verhindert übermäßiges Strecken auf sehr breiten Bildschirmen */
+    }
+}
+
+/* Anpassungen für sehr schmale/hohe Bildschirme */
+@media (max-aspect-ratio: 9/16) {
+    .hero {
+        background-size: auto 100%; /* Verhindert übermäßiges Strecken auf sehr schmalen Bildschirmen */
+    }
+}
 
         p {
             text-align: left;
