@@ -46,20 +46,22 @@
         }
 .hero {
     background-image: url('https://refhoster.com/img/hero-banner.png');
-    height: 70vh; /* Volle Bildschirmhöhe */
-    background-position: center center; /* Zentriert das Bild horizontal und vertikal */
+    height: 100vh; /* Volle Bildschirmhöhe */
+    background-attachment: fixed; /* Aktiviert den Parallax-Effekt */
+    background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover; /* Deckt die gesamte Fläche ab */
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: left;
     padding: 20px;
-    position: relative; /* Für absolute Positionierung von Inhalten */
+    position: relative;
+    overflow: hidden; /* Verhindert mögliches Überlaufen des Inhalts */
 }
 
-/* Überlagerung hinzufügen, um Text besser lesbar zu machen */
+/* Überlagerung für bessere Lesbarkeit */
 .hero::before {
     content: "";
     position: absolute;
@@ -67,11 +69,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.5); /* Halbtransparentes Weiß */
+    background: rgba(255, 255, 255, 0.5);
     z-index: 1;
 }
 
-/* Stellen Sie sicher, dass der Inhalt über der Überlagerung liegt */
 .hero > * {
     position: relative;
     z-index: 2;
@@ -80,24 +81,24 @@
 /* Anpassungen für kleinere Bildschirme */
 @media (max-width: 768px) {
     .hero {
-        background-position: center center; /* Zentriert auf kleineren Bildschirmen */
+        background-attachment: scroll; /* Deaktiviert Parallax auf mobilen Geräten für bessere Performance */
+        background-position: center center;
     }
 }
 
-/* Zusätzliche Anpassungen für sehr breite Bildschirme */
+/* Anpassungen für sehr breite Bildschirme */
 @media (min-aspect-ratio: 16/9) {
     .hero {
-        background-size: 100% auto; /* Verhindert übermäßiges Strecken auf sehr breiten Bildschirmen */
+        background-size: 100% auto;
     }
 }
 
 /* Anpassungen für sehr schmale/hohe Bildschirme */
 @media (max-aspect-ratio: 9/16) {
     .hero {
-        background-size: auto 100%; /* Verhindert übermäßiges Strecken auf sehr schmalen Bildschirmen */
+        background-size: auto 100%;
     }
 }
-
         p {
             text-align: left;
         }
