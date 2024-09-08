@@ -172,7 +172,35 @@ button[type="submit"] {
         button[type="submit"]:hover {
             background-color: #3e57c9;
         }
-    
+              .footer-container {
+            position: relative; /* Ermöglicht die absolute Positionierung des GitHub-Icons */
+            max-width: 500px;
+            margin: 20px auto; /* Zentriert die Box */
+            background-color: #ffffff; /* Graue Box */
+            border-radius: 10px; /* Abgerundete Ecken */
+            padding: 20px; /* Innenabstand */
+            text-align: center;
+            border: 1px solid #ddd;
+	    margin-bottom: 30px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center; /* Zentriert die Links */
+            gap: 20px; /* Abstand zwischen den Links */
+            margin-top: 20px;
+	    margin-bottom: 20px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #000000; /* Linkfarbe */
+        }
+        
+        .footer-link:hover {
+            color: #5271FF; /* Hover-Farbe für die Links */
+        }
+
 		</style>
 	</head>
 	<body>
@@ -188,10 +216,17 @@ button[type="submit"] {
 		<div style="text-align: center;">
 			<a href="/create" style="display: inline-block; background-color: #5271FF; color: white; text-decoration: none; padding: 5px 10px; border-radius: 10px; font-size: small;">Create link collection</a>
 		</div>
-		<p></p>
-		<br>
 
+    <footer>
+        <div class="footer-container">
+            <nav class="footer-nav">
+                <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="/terms-of-use.html" class="footer-link">Terms of Use</a>
+            </nav>
 
+            </a>
+        </div>
+    </footer>
 		<script>
         const linksContainer = document.getElementById('links-container');
         const errorMessageContainer = document.getElementById('error-message');
