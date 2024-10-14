@@ -191,12 +191,34 @@ button[type="submit"] {
 .footer-link:hover {
     color: #5271FF; /* Hover-Farbe für die Links */
 }
+        .loading-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
 
+        .loading-spinner {
+            width: 30px;
+            height: 30px;
+            border: 10px solid #f3f3f3;
+            border-top: 10px solid #5271FF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
 		</style>
 	</head>
 	<body>
 		<div class="container">
+		  			<div id="loading" class="loading-container">
+				<div class="loading-spinner"></div>
+			</div>
 			<div id="links-container"></div>
 			<div id="error-message" class="error-message"></div>
 			<form id="pin-form" style="display: none;">
@@ -222,6 +244,7 @@ button[type="submit"] {
         const enterPinButton = document.getElementById('enter-pin-button');
         const pinForm = document.getElementById('pin-form');
         const pinInput = document.getElementById('pin-input');
+        const loadingContainer = document.getElementById('loading');
 
         // Funktion zum Abrufen des URL-Parameters
         function getUrlParameter(name) {
@@ -231,11 +254,12 @@ button[type="submit"] {
             return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
 
-        // Funktion zum Abrufen der Links basierend auf dem PIN
         function fetchLinks(pin) {
+            loadingContainer.style.display = 'flex'; // Show loading animation
             fetch(`https://script.google.com/macros/s/AKfycbzfSUloS7zdHxJkcSEb6Se9vvYv6E5QnGJlt3x9BRDD2oN4homBVqNTwGKCn3ApmQg_rA/exec?sourceId=${pin}`)
                 .then(response => response.json())
                 .then(data => {
+                    loadingContainer.style.display = 'none'; // Hide loading animation
                     if (data.error) {
                         displayError(data.error);
                     } else {
@@ -243,6 +267,7 @@ button[type="submit"] {
                     }
                 })
                 .catch(error => {
+                    loadingContainer.style.display = 'none'; // Hide loading animation
                     displayError('Error fetching data. Please try again.');
                 });
         }
