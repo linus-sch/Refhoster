@@ -171,28 +171,31 @@ button[type="submit"] {
         button[type="submit"]:hover {
             background-color: #3e57c9;
         }
-          .footer-container {
-            position: relative; /* Ermöglicht die absolute Positionierung des GitHub-Icons */
-            max-width: 415px;
-            margin: 20px auto; /* Zentriert die Box */
-            padding: 10px; /* Innenabstand */
-            text-align: center;
-	    margin-bottom: 30px;
-        }
+.footer-container {
+    position: relative; /* Ermöglicht die absolute Positionierung des GitHub-Icons */
+    max-width: 415px;
+    margin: 20px auto; /* Zentriert die Box */
+    padding: 10px; /* Innenabstand */
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-        .footer-nav {
-            display: flex;
-            justify-content: center; /* Zentriert die Links */
-        }
+.footer-nav {
+    display: flex;
+    flex-direction: column; /* Stellt sicher, dass die Links übereinander angezeigt werden */
+    align-items: center; /* Zentriert die Links horizontal */
+}
 
-        .footer-link {
-            text-decoration: none;
-            color: #000000; 
-        }
-        
-        .footer-link:hover {
-            color: #5271FF; /* Hover-Farbe für die Links */
-        }
+.footer-link {
+    text-decoration: none;
+    color: #000000; 
+    margin-bottom: 10px; /* Fügt Abstand zwischen den Links hinzu */
+}
+
+.footer-link:hover {
+    color: #5271FF; /* Hover-Farbe für die Links */
+}
+
 
 		</style>
 	</head>
