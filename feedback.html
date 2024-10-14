@@ -122,33 +122,66 @@
     p {
       font-size: 15px; /* Standard Schriftgröße für den Paragraph */
     }
-  .footer-container {
-    position: relative; /* Ermöglicht die absolute Positionierung des GitHub-Icons */
-    max-width: 415px;
-    margin-top: 30px;
-    margin-bottom: 40px;
-    text-align: center;
-    margin-bottom: 30px;
-}
 
-.footer-nav {
-    display: flex;
-    flex-direction: column; /* Stellt sicher, dass die Links übereinander angezeigt werden */
-    align-items: center; /* Zentriert die Links horizontal */
-}
-.footer small {
-    margin-top: 10px;
-}
-.footer-link {
-    text-decoration: none;
-    color: #000000; 
-}
+          .footer-container {
+            position: relative; /* Ermöglicht die absolute Positionierung des GitHub-Icons */
+            max-width: 500px;
+            margin: 20px auto; /* Zentriert die Box */
+            background-color: #ffffff; /* Graue Box */
+            border-radius: 10px; /* Abgerundete Ecken */
+            padding: 20px; /* Innenabstand */
+            text-align: center;
+            border: 1px solid #ddd;
+	    margin-bottom: 30px;
+        }
 
-.footer-link:hover {
-    color: #5271FF; /* Hover-Farbe für die Links */
-}
+        .button-container {
+            display: flex;
+            flex-direction: column; /* Buttons übereinander */
+            align-items: center;
+            gap: 10px; /* Abstand zwischen den Buttons */
+        }
 
+        .footer-button {
+            display: block;
+            width: 94%;
+            text-align: center;
+            background-color: #5271FF;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 15px;
+        }
 
+        .footer-nav {
+            display: flex;
+            justify-content: center; /* Zentriert die Links */
+            gap: 20px; /* Abstand zwischen den Links */
+            margin-top: 20px;
+	    margin-bottom: 20px;
+        }
+
+        .footer-link {
+            text-decoration: none;
+            color: #000000; /* Linkfarbe */
+        }
+        
+        .footer-link:hover {
+            color: #5271FF; /* Hover-Farbe für die Links */
+        }
+        
+        .disclaimer {
+            font-size: small;
+            color: #999; /* Hellgraue Farbe für den Disclaimer */
+            margin: 10px 0; /* Abstand um den Disclaimer */
+        }
+        
+        .github-link {
+            position: absolute; /* Absolut positioniert */
+            bottom: 10px;
+            right: 20px;
+        }
 		</style>
 	</head>
 	<body>
