@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
 <url>
   <loc>https://refhoster.com/</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>https://refhoster.com/therms-of-use</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>https://refhoster.com/feedback</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>https://refhoster.com/view?pin=1234</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>https://refhoster.com/view</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
 </url>
 <url>
   <loc>https://refhoster.com/create</loc>
-  <changefreq>weekly</changefreq>
+  <changefreq>monthly</changefreq>
 </url>
 </urlset>
