@@ -37,9 +37,73 @@ html {
     height: 100%;
 }
 
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px; 
+            background-color: rgba(255, 255, 255, 0.9); 
+            backdrop-filter: blur(5px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            height: 65px;
+            border-bottom: 2px solid #5170FF;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            max-width: 150px; 
+            height: auto; 
+        }
+            
+       .navbutton {
+           background-color: #5170FF;  
+           padding: 6px;
+           height: 8px;
+           padding-left: 8px;
+           padding-right: 8px;
+           border-radius: 18px;
+           color: #fff !important;      
+         }
+         
+        .navbutton:hover {
+           background-color: transparent;  
+           border: 2px solid #5170FF;
+        }
+
+
+        .nav-links {
+            margin-left: auto; 
+            margin-right: 15px;
+        }
+
+        .nav-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: black;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #5170FF; 
+        }
+
+       
+        @media (max-width: 520px) {
+            .navbar {
+                justify-content: center; 
+            }
+
+            .nav-links {
+                display: none; 
+            }
+        }
+        
 .hero {
     background-image: url('https://refhoster.com/img/hero-mockup.jpg');
-    height: 70vh;
+    height: 60vh;
     background-attachment: fixed; 
     background-position: center center;
     background-repeat: no-repeat;
@@ -48,7 +112,7 @@ html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: left;
+    text-align: center;
     padding: 20px;
     position: relative;
 }
@@ -70,7 +134,7 @@ html {
 
 .content {
     padding: 20px;
-    height: 200vh; /* Beispielhöhe für den Inhalt */
+    height: 200vh; 
 }
 
 @media (max-width: 500px) {
@@ -92,17 +156,11 @@ html {
 }
 
 
-
-
       p {
         text-align: left;
       }
     
 
-      .logo {
-        max-width: 150px;
-        margin-bottom: 20px;
-      }
 
       .hero h1 {
         color: #ffffff;
@@ -111,6 +169,7 @@ html {
         font-weight: 700;
         font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
         font-weight: 600;
+        margin-top: 80px;
       }
 
       .button {
@@ -124,7 +183,7 @@ html {
         font-size: 18px;
         margin: 20px 0;
         cursor: pointer;
-        border-radius: 12px;
+        border-radius: 30px;
         transition: transform 0.2s;
       }
 
@@ -169,7 +228,7 @@ html {
       }
 
       .feedback {
-        background-color: #4285F4;
+        background-color: #5170FF;
         border-radius: 8px;
         color: white;
         padding: 40px;
@@ -180,7 +239,7 @@ html {
       }
 
       .blue-section {
-        background-color: #4285F4;
+        background-color: #5170FF;
         width: 100%;
       }
 
@@ -190,7 +249,7 @@ html {
         border: none;
         cursor: pointer;
         padding: 10px 30px;
-        border-radius: 12px;
+        border-radius: 30px;
         font-size: 18px;
         margin: 10px 0;
         transition: transform 0.2s;
@@ -220,8 +279,8 @@ html {
         flex-direction: column;
         max-width: 500px;
         margin: 40px auto;
-        padding: 20px;
-        border-radius: 10px;
+        padding: 30px;
+        border-radius: 30px;
         font-family: 'Montserrat', sans-serif;
         background-color: #fff;
       }
@@ -239,7 +298,7 @@ html {
         margin: 10px 0;
         padding: 10px;
         border: 1px solid #e0e0e0;
-        border-radius: 5px;
+        border-radius: 20px;
         font-family: 'Helvetica Neue', sans-serif;
         color: #595ad4;
         background-color: #fff;
@@ -256,7 +315,7 @@ html {
         cursor: pointer;
         width: 100%;
         padding: 10px;
-        border-radius: 12px;
+        border-radius: 30px;
         border: none;
         transition: background-color 0.3s, transform 0.2s;
       }
@@ -428,7 +487,7 @@ html {
 .feature-box {
     background-color: white;
     border: 1px solid #ddd;
-    border-radius: 12px;
+    border-radius: 20px;
     padding: 15px;
     position: relative;
 }
@@ -456,7 +515,7 @@ html {
     justify-content: center;
     position: absolute;
     top: 0px;
-    right: 5px;
+    right: 0px;
 }
 
 .icon img {
@@ -473,6 +532,14 @@ html {
     </style>
   </head>
   <body>
+      <div class="navbar">
+        <img src="https://refhoster.com/img/refhoster-logo.png" alt="Refhoster Logo" class="logo">
+        <div class="nav-links">
+            <a href="/view?pin=1234">Demo</a>
+            <a href="/terms-of-use.html">Terms of use</a>
+            <a class="navbutton" href="/create.html">Get started</a>
+        </div>
+    </div>
     <div class="hero">
       <h1>Host your references on a QR code</h1>
       <a href="/create">
@@ -521,7 +588,7 @@ html {
                 <img src="https://refhoster.com/img/ui-icon.png" alt="Icon 3">
               </div>
             </div>
-            <p>Simple, intuitive UI. No tech skills needed.</p>
+            <p>Simple, intuitive UI without any ADs. No tech skills needed.</p>
           </div>
           <div class="feature-box">
             <div class="header">
