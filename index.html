@@ -27,81 +27,85 @@
       }
     </script>
     <style>
-      body,
-      html {
-        font-family: system-ui, Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
-        font-weight: 300;
-        margin: 0;
-        padding: 0;
-        color: #333;
-        height: 100%;
-      }
+body,
+html {
+    font-family: system-ui, Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    height: 100%;
+}
 
-      .hero {
-        background-image: url('https://refhoster.com/img/hero-banner.png');
-        height: 70vh;
-        /* Volle Bildschirmhöhe */
+.hero {
+    background-image: url('https://refhoster.com/img/hero-mockup.jpg');
+    height: 70vh;
+    background-attachment: fixed; 
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 20px;
+    position: relative;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(51, 73, 170, 0.8);
+    z-index: 1;
+}
+
+.hero>* {
+    position: relative;
+    z-index: 2;
+}
+
+.content {
+    padding: 20px;
+    height: 200vh; /* Beispielhöhe für den Inhalt */
+}
+
+@media (max-width: 500px) {
+    .hero {
         background-position: center center;
-        /* Zentriert das Bild horizontal und vertikal */
-        background-repeat: no-repeat;
-        background-size: cover;
-        /* Deckt die gesamte Fläche ab */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: left;
-        padding: 20px;
-        position: relative;
-        /* Für absolute Positionierung von Inhalten */
-      }
+    }
+}
 
-      /* Überlagerung hinzufügen, um Text besser lesbar zu machen */
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(255, 255, 255, 0.5);
-        z-index: 1;
-      }
+@media (min-aspect-ratio: 16/9) {
+    .hero {
+        background-size: 100% auto;
+    }
+}
 
-      .hero>* {
-        position: relative;
-        z-index: 2;
-      }
+@media (max-aspect-ratio: 9/16) {
+    .hero {
+        background-size: auto 100%;
+    }
+}
 
-      @media (max-width: 500px) {
-        .hero {
-          background-position: center center;
-        }
-      }
 
-      @media (min-aspect-ratio: 16/9) {
-        .hero {
-          background-size: 100% auto;
-        }
-      }
 
-      @media (max-aspect-ratio: 9/16) {
-        .hero {
-          background-size: auto 100%;
-        }
-      }
 
       p {
         text-align: left;
       }
+    
 
       .logo {
-        max-width: 200px;
+        max-width: 150px;
         margin-bottom: 20px;
       }
 
       .hero h1 {
-        color: black;
+        color: #ffffff;
         font-size: 36px;
         margin-bottom: 30px;
         font-weight: 700;
@@ -110,9 +114,9 @@
       }
 
       .button {
-        background-color: #5170FF;
+        background-color: #3c55c4;
         color: white;
-        border: none;
+        border: 2px solid #ffffff;
         padding: 10px 30px;
         text-align: center;
         text-decoration: none;
@@ -129,7 +133,7 @@
       }
 
       .subtext {
-        color: black;
+        color: #ffffff;
         font-size: 20px;
       }
 
@@ -470,7 +474,6 @@
   </head>
   <body>
     <div class="hero">
-      <img src="https://refhoster.com/img/refhoster-logo.png" alt="Refhoster Logo" class="logo">
       <h1>Host your references on a QR code</h1>
       <a href="/create">
         <button class="button">Get Started</button>
