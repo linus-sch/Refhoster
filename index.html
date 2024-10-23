@@ -30,6 +30,8 @@ html {
     padding: 0;
     color: #333;
     height: 100%;
+    width: 100%;
+    overflow-x: hidden; /* Verhindert horizontales Scrollen */
 }
 
         .navbar {
@@ -42,10 +44,14 @@ html {
             position: fixed;
             width: 100%;
             top: 0;
-            height: 30px;
+            height: 50px;
             border-bottom: 2px solid #5170FF;
             left: 0;
             z-index: 1000;
+            box-sizing: border-box; 
+           padding: 15px 20px;
+    width: 100%;
+    left: 0;
         }
 
         .logo {
@@ -54,9 +60,10 @@ html {
         }
             
        .navbutton {
-           background-color: #5170FF;  
+           background-color: #3c55c4;  
            padding: 6px;
            height: 8px;
+           border: 2px solid #3c55c4;
            padding-left: 8px;
            padding-right: 8px;
            border-radius: 18px;
@@ -72,7 +79,7 @@ html {
 
         .nav-links {
             margin-left: auto; 
-            margin-right: 35px;
+            margin-right: 5px;
         }
 
         .nav-links a {
@@ -99,11 +106,11 @@ html {
         
 .hero {
     background-image: url('https://refhoster.com/img/hero-mockup.jpg');
-    height: 60vh;
+    height: 60vh; /* Beibehalten der ursprünglichen Höhe */
     background-attachment: fixed; 
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; /* Ursprünglich */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -112,6 +119,16 @@ html {
     padding: 20px;
     position: relative;
 }
+
+
+@media (max-width: 320px) {
+    .hero {
+        background-size: contain; 
+        background-position: center; /* Position anpassen */
+    }
+}
+
+
 .hero::before {
     content: "";
     position: absolute;
@@ -223,12 +240,15 @@ html {
         color: #5170FF;
         font-size: 24px;
       }
-
+     
+    
       .feedback {
+        box-sizing: border-box;
         color: white;
-        padding: 40px;
+        padding: 40px 20px;
         text-align: center;
-        margin: 20px auto;  
+        margin: 0 auto;
+        margin-bottom: 20px;
         width: 100%;
         max-width: 800px;
       }
@@ -246,7 +266,6 @@ html {
         padding: 10px 30px;
         border-radius: 30px;
         font-size: 18px;
-        margin: 10px 0;
         transition: transform 0.2s;
       }
 
@@ -254,13 +273,7 @@ html {
         transform: scale(1.05);
       }
 
-      footer {
-        background-color: #f0f0f0;
-        padding: 20px;
-        text-align: center;
-        margin-top: 40px;
-        
-      }
+
 
       label {
         margin-bottom: 10px;
@@ -320,10 +333,10 @@ html {
       }
 
       #submit:hover {
-        background-color: #346dc9;
+        background-color: #3c55c4;
       }
 
-      @media (min-width: 500px) {
+      @media (min-width: 670px) {
 
         .header,
         .problem {
@@ -363,58 +376,52 @@ html {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 12px;
+        font-size: 5px;
         margin-top: 40px;
-        osition: relative;
+        position: relative;
+      } 
 
-      }
 
       .footer-content {
         display: flex;
         justify-content: space-between;
-        /* Platz zwischen Links und Copyright */
         width: 100%;
-        /* Damit der Footer den gesamten Platz einnimmt */
         margin-bottom: 30px;
       }
 
       .footer-links {
         display: flex;
-        /* Flexbox für die Links */
         align-items: center;
-        /* Vertikale Ausrichtung der Links */
       }
 
       .separator {
-        color: #858585;
+       color: #858585;
        margin: 0 3px;
+       font-size: 15px;
       }
 
       .footer-link {
         color: #333;
-        /* Linkfarbe */
         transition: color 0.3s;
         text-decoration: none;
-        /* Keine Textdekoration */
+        font-size: 15px;
       }
 
       .footer-link:hover {
         color: #007bff;
-        /* Hover-Farbe */
         text-decoration: none;
-        /* Keine Textdekoration */
       }
 
       .copyright {
         margin: 0;
-        /* Kein Margin für den Copyright-Text */
+        font-size: 15px;
       }
 
       /* Mobile Styles */
       @media (max-width: 720px) {
         .footer-content {
           flex-direction: column;
-          margin-bottom: 2opx;
+          margin-bottom: 20px;
         }
 
         .footer-links {
@@ -433,17 +440,17 @@ html {
   }
 }
 .github-link {
-  position: fixed;  /* Änderung von absolute zu fixed */
-  bottom: 20px;     /* Neuer Wert - positioniert von unten */
+  position: fixed;  
+  bottom: 20px;    
   right: 20px;
   display: flex;
   align-items: center;
-  z-index: 1000;    /* Stellt sicher, dass das Icon über anderen Elementen liegt */
+  z-index: 1000;   
 }
 
 .github-link img {
-  width: 24px;      /* Kleinere Bildgröße */
-  height: 24px;     /* Kleinere Bildgröße */
+  width: 24px;     
+  height: 24px;    
   transition: transform 0.2s ease;
 }
 
@@ -451,18 +458,14 @@ html {
   transform: scale(1.1); /* Leichter Hover-Effekt */
 }
 
-.key-features-container {
-    background-color: #F5F5F7;
-    width: 100vw;
-    padding: 35px 15px;
-    margin-top: 60px;
-    margin-bottom: 60px;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-}
+      .key-features-container {
+        box-sizing: border-box;
+        background-color: #F5F5F7;
+        width: 100%;
+        padding: 35px 15px;
+        margin-top: 60px;
+        margin-bottom: 60px;
+      }
 
 .key-features-container h2 {
     color: #000000;
@@ -556,9 +559,10 @@ html {
           </a>
         </div>
         <div class="header-image">
-          <img src="https://refhoster.com/img/what-is-refhoster.jpeg" alt="Person working with refhoster" style="width: 300px; height: 230px;">
+          <img src="https://refhoster.com/img/what-is-refhoster.jpeg" alt="Person working with refhoster" style="width: 300px; height: 200px;">
         </div>
       </div>
+       </div>
       <div class="key-features-container">
         <h2>Key Features</h2>
         <div class="features-container">
@@ -599,7 +603,8 @@ html {
             <p>Link groups are being deleted after 6 months to keep things tidy.*</p>
           </div>
         </div>
-      </div>
+         </div>
+          <div class="container">
       <div class="problem">
         <div class="problem-image">
           <img src="https://refhoster.com/img/problem.png" alt="Person working at computer" style="width: 300px; height: 200px;">
