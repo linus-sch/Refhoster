@@ -4,9 +4,14 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Refhoster - Create Link Collection</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+		<script  src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+        
 		<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-QDFP31GGTT"></script>
+        
+        
+        
 		<link rel="icon" type="image/png" href="/img/favicon.png" sizes="32x32">
 		<meta name="title" content="Refhoster | Create new link collection" />
 		<meta name="description" content="Host your references on a QR code. You can access your sources later by scanning the QR code you'll receive or by opening the link that will also be provided." />
@@ -34,7 +39,6 @@
         
 		</script>
 		<style>
-    /* Global Styles */
     body {
       font-family: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif;      font-weight: 300;      
       margin: 0;
@@ -42,10 +46,7 @@
       background-color: #f7f7f7;
       transition: background-color 0.3s ease;
     }
-    ::selection {
-       background: #5271FF; 
-       color: #ffffff;
-        }
+
     .container {
       max-width: 500px;
       margin: 40px auto;
@@ -55,7 +56,6 @@
       border-radius: 10px;
     }
 
-    /* Form Styles */
     form {
       display: flex;
       flex-direction: column;
@@ -71,7 +71,6 @@
       transition: color 0.3s ease;
     }
 
-    /* Center H1 Styles */
     h1 {
       text-align: center;
       margin-bottom: 20px;
@@ -109,6 +108,13 @@
 
     }
 
+    .deletion-disclaimer {
+      background-color: #ffe0e0;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0; 
+        }
+        
     .link-input input[type="text"] {
       padding: 10px;
       margin-bottom: 10px;
@@ -128,7 +134,7 @@
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
-
+    
     button[type="submit"], button[type="button"] {
       background-color: #3F51B5;
     }
@@ -136,9 +142,11 @@
 
     #add-link-btn {
       margin-right: 10px;
+      align-item: center;
+      max-width: 110px;
+      border-radius: 40px !important;
     }
 
-    /* Popup Styles */
     .popup {
       position: fixed;
       top: 50%;
@@ -277,14 +285,19 @@
         
         .disclaimer {
             font-size: small;
-            color: #999; /* Hellgraue Farbe für den Disclaimer */
-            margin: 10px 0; /* Abstand um den Disclaimer */
+            color: #707070; 
+            margin: 10px 0; 
         }
         
         .github-link {
-            position: absolute; /* Absolut positioniert */
+            position: absolute;
             bottom: 10px;
             right: 20px;
+        }
+        
+        .whitespace {
+            height: 30px; 
+            background-color: transparent; 
         }
 		</style>
 	</head>
@@ -326,24 +339,27 @@
 					<input type="text" id="link3" name="link3">
 				</div>
 				<div id="dynamic-links"></div>
+                				<button id="add-link-btn" style="background-color: #F8F9FA; color: #202124; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Add Link</button>
 			</form>
-			Link collections will be deleted after six months of inactivity.
-			<br>
-			<p></p>
-			<br>
+                <div class="whitespace"></div>
+
 			<label for="email">Email (optional)</label>
+
 			<input type="email" id="email" style="width: 95%; padding: 10px; margin-bottom: 20px; border: 1px solid #e0e0e0; border-radius: 5px;">
+                                        <div class="whitespace"></div>
+
 			<hr style="height: 1px; background-color: #E0E0E0; border: none;">
-			<p></p>
-			<br>
-			<div style="text-align: right;">
-				<button id="add-link-btn" style="background-color: #F8F9FA; color: #202124; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Add Link</button>
+
+			<p class="deletion-disclaimer"><strong>Warning:</strong> Link collections will be deleted after six months of inactivity. </p>
+
+<div style="text-align: right;">
 				<button id="submit-btn" style="background-color: #5271FF; color: #fff; padding: 10px 20px; border: 1px solid #5271FF; border-radius: 5px; cursor: pointer;">Continue</button>
 				<div class="succes-popup" id="popup">
 					<div id="success-message" style="text-align: center; font-size: large; color: green;"></div>
 				</div>
 			</div>
 		</div>
+        
     <footer>
         <div class="footer-container">
             <div class="button-container">
