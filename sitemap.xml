@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://refhoster.com/</loc>
+    </url>
+    <url>
+        <loc>https://refhoster.com/view?pin=1234</loc>
+    </url>
+    <url>
+        <loc>https://refhoster.com/view</loc>
+    </url>
+    <url>
+        <loc>https://refhoster.com/create</loc>
+    </url>
+    <url>
+        <loc>https://refhoster.com/privacy-policy</loc>
+    </url>
+    <url>
+        <loc>https://refhoster.com/therms-of-use</loc>
+    </url>
+    <url>
+        <loc>https://refhoster.com/feedback</loc>
+    </url>
+</urlset>
