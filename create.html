@@ -573,21 +573,24 @@
                 display: none;
             }
             .banner {
-            background-color: #f44336; 
-            color: white;
-            text-align: center; 
-            padding: 15px; 
-            position: fixed; 
-            bottom: 0; 
-            width: 100%; 
-            z-index: 1000; 
-        }
+                background-color: #f44336;
+                color: white;
+                text-align: center;
+                padding: 15px;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                z-index: 1000;
+            }
         </style>
     </head>
 
     <body>
         <div class="banner">
             We are currently experiencing technical issues.
+            <a
+                href="https://github.com/linus-sch/refhoster/tree/main"
+                style="color: #ffffff;">Help</a>
         </div>
         <div class="navbar">
             <a href="/">
@@ -758,19 +761,15 @@
                     <a href="/view.html?pin=1234" class="footer-button">Demo</a>
                 </div>
                 <nav class="footer-nav">
-                    <a
-                        href="/cdn-cgi/l/email-protection#a3c0cccdd7c2c0d7e3d1c6c5cbccd0d7c6d18dc0ccce"
-                        class="footer-link">Contact</a>
+                    <a href="mailto:contact@refhoster.com" class="footer-link">Contact</a>
                     <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
                     <a href="/terms-of-use.html" class="footer-link">Terms of Use</a>
+                    <a href="https://github.com/linus-sch/refhoster/tree/main" class="footer-link">Github</a>
                 </nav>
                 <hr style="height: 1px; background-color: #E0E0E0; border: none;">
                 <p class="disclaimer">© 2024 Refhoster. All rights reserved.</p>
             </div>
         </footer>
-        <script
-            data-cfasync="false"
-            src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
         <script>
             const form = document.getElementById('link-form');
             const addLinkBtn = document.getElementById('add-link-btn');
@@ -800,178 +799,167 @@
             });
 
             submitBtn.addEventListener('click', (e) => {
-                e.preventDefault();
+    e.preventDefault();
 
-                const pairs = [];
-                for (let i = 1; i <= linkCount; i++) {
-                    const title = document.getElementById('title' + i)
-                        ?.value || '';
-                    const link = document.getElementById('link' + i)
-                        ?.value || '';
-                    pairs.push(`${title}||${link}`);
-                }
+    const pairs = [];
+    for (let i = 1; i <= linkCount; i++) {
+        const title = document.getElementById('title' + i)?.value || '';
+        const link = document.getElementById('link' + i)?.value || '';
+        pairs.push(`${title}||${link}`);
+    }
 
-                const type = document.getElementById('type')
-                    ?.value || '';
-                const colorscheme = document.getElementById('colorscheme')
-                    ?.value || '';
-                const collectionTitle = document.getElementById('collection-title')
-                    ?.value || '';
-                const collectionSubtitle = document.getElementById('collection-subtitle')
-                    ?.value || '';
-                const email = document.getElementById('email')
-                    ?.value || '';
-                const code = Math.floor(1000 + Math.random() * 9000);
+    const type = document.getElementById('type')?.value || '';
+    const colorscheme = document.getElementById('colorscheme')?.value || '';
+    const collectionTitle = document.getElementById('collection-title')?.value || '';
+    const collectionSubtitle = document.getElementById('collection-subtitle')?.value || '';
+    const email = document.getElementById('email')?.value || '';
+    const code = Math.floor(1000 + Math.random() * 9000);
 
-                const data = {
-                    submittedValues: pairs.join("\n"),
-                    code: code,
-                    email: email,
-                    title: collectionTitle,
-                    subtitle: collectionSubtitle,
-                    colorscheme: colorscheme,
-                    type: type
-                };
+    const data = {
+        submittedValues: pairs.join("\n"),
+        code: code,
+        email: email,
+        title: collectionTitle,
+        subtitle: collectionSubtitle,
+        colorscheme: colorscheme,
+        type: type
+    };
 
-                submitBtn.textContent = 'Loading...';
+    submitBtn.textContent = 'Loading...';
+    fetch(
+        'https://script.google.com/macros/s/AKfycbxB6At0IT-43aQciimG8gGYEP_f6h91WliMAxi' +
+        'apgoNcFIGWCReF6GTf6RU6ot_lp3Q0A/exec',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams(data)
+        }
+    )
+    .then(response => response.json())
+    .then(result => {
+        submitBtn.textContent = 'Publish';
 
-                fetch(
-                    'https://script.google.com/macros/s/AKfycbxB6At0IT-43aQciimG8gGYEP_f6h91WliMAxiapgoNcFIGWCReF6GTf6RU6ot_lp3Q0A/exec',
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/x-www-form-urlencoded'
-                        },
-                        body: new URLSearchParams(data)
-                    }
-                )
-                    .then(response => response.json())
-                    .then(result => {
-                        submitBtn.textContent = 'Publish';
+        if (result.success) {
+            const popupContainer = document.createElement('div');
+            popupContainer.innerHTML = `
+                <div class="popup">
+                    <div class="popup-container" style="padding: 20px; border-radius: 10px; background-color: #fff; max-width: 400px; margin: auto;">
+                        <h2 style="text-align: center;">Link Collection Published!</h2>
+                        <p style="text-align: center;">By scanning the QR code, everyone can access your links.</p>
+                        <div class="image-text-container" style="display: flex; flex-direction: column; align-items: center; width: fit-content; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-radius: 10px; background-color: #FFFFFF; margin: 20px auto;">
+                            <div id="qrcode" style="margin: 0 auto;"></div>
+                        </div>
+                        <div class="button-container" style="display: flex; justify-content: flex-end;">
+                            <p class="or-p">or</p>
+                            <button class="Btn" id="copy-btn">
+                                <span class="text">Copy Link</span>
+                                <span class="svgIcon">
+                                    <svg fill="white" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </div>
+                        <button id="close-btn" class="close-btn" style="position: absolute; top: 15px; right: 15px; font-size: 30px; cursor: pointer;">×</button>
+                    </div>
+                </div>
+            `;
 
-                        if (result.success) {
-                            const popupContainer = document.createElement('div');
-                            popupContainer.innerHTML = `
-<div class="popup">
-<div class="popup-container" style="padding: 20px; border-radius: 10px; background-color: #fff; max-width: 400px; margin: auto;">
-<h2 style="text-align: center;">Link Collection Published!</h2>
-<p style="text-align: center;">By scanning the QR code, everyone can access your links.</p>
-<div class="image-text-container" style="display: flex; flex-direction: column; align-items: center; width: fit-content; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-radius: 10px; background-color: #FFFFFF; margin: 20px auto;">
-<div id="qrcode" style="margin: 0 auto;"></div>
-</div>
-<div class="button-container" style="display: flex; justify-content: flex-end;">
-<p class="or-p">or</p>
+            document.body.appendChild(popupContainer);
 
-<button class="Btn" id="copy-btn">
-<span class="text">Copy Link</span>
-<span class="svgIcon">
-<svg fill="white" viewBox="0 0 384 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"></path></svg>
-</span>
-</button>
-</div>
-<button id="close-btn" class="close-btn" style="position: absolute; top: 15px; right: 15px; font-size: 30px; cursor: pointer;">×</button>
-</div>
-</div>
-`;
+            new QRCode(document.getElementById("qrcode"), {
+                text: `https://refhoster.com/view?pin=${code}`,
+                width: 128,
+                height: 128
+            });
 
-                            document
-                                .body
-                                .appendChild(popupContainer);
+            // Event Listener für den Schließen-Button
+            document.getElementById("close-btn").addEventListener("click", function () {
+                popupContainer.remove();
+            });
 
-                            new QRCode(document.getElementById("qrcode"), {
-                                text: `https://refhoster.com/view?pin=${code}`,
-                                width: 128,
-                                height: 128
-                            });
-
-                            document
-                                .getElementById('close-btn')
-                                .addEventListener('click', (e) => {
-                                    e.preventDefault();
-                                    popupContainer.remove();
-                                });
-
-                            const copyBtn = document.getElementById('copy-btn');
-                            copyBtn.addEventListener('click', () => {
-                                const url = `https://refhoster.com/view?pin=${code}`;
-                                navigator
-                                    .clipboard
-                                    .writeText(url)
-                                    .then(() => {})
-                                    .catch(err => {
-                                        console.error('Failed to copy URL: ', err);
-                                        alert('Failed to copy URL.');
-                                    });
-                            });
-
-                            form.reset();
-                        } else {
-                            alert(result.message);
-                        }
+            // Event Listener für den Copy-Link-Button
+            document.getElementById("copy-btn").addEventListener("click", function () {
+                const linkToCopy = `https://refhoster.com/view?pin=${code}`;
+                navigator.clipboard.writeText(linkToCopy)
+                    .then(() => {
+                        alert("Link copied to clipboard!");
                     })
-                    .catch(error => {
-                        console.error('Error:', error);
-                        alert('An error occurred while publishing. Please try again.');
-                        submitBtn.textContent = 'Publish';
+                    .catch(err => {
+                        console.error("Failed to copy: ", err);
                     });
             });
 
-            function changeColor(color) {
-                const selectElement = document.getElementById('colorscheme');
-                selectElement.value = color;
+            form.reset();
+        } else {
+            alert(result.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while publishing. Please try again.');
+        submitBtn.textContent = 'Publish';
+    });
+});
 
-                const previewImage = document.getElementById('color-preview');
-                const typeSelect = document.getElementById('type');
+        function changeColor(color) {
+            const selectElement = document.getElementById('colorscheme');
+            selectElement.value = color;
 
-                if (typeSelect.value === 'buttons') {
-                    previewImage.src = `/img/example-collection-buttons-${color}.jpg`;
-                } else {
-                    previewImage.src = `/img/example-collection-${color}.jpg`;
-                }
+            const previewImage = document.getElementById('color-preview');
+            const typeSelect = document.getElementById('type');
 
-                const colorDots = document.querySelectorAll('.dot');
-                colorDots.forEach(dot => dot.classList.remove('selected'));
-                const selectedDot = document.querySelector(`.dot[data-color="${color}"]`);
-                selectedDot
-                    .classList
-                    .add('selected');
+            if (typeSelect.value === 'buttons') {
+                previewImage.src = `/img/example-collection-buttons-${color}.jpg`;
+            } else {
+                previewImage.src = `/img/example-collection-${color}.jpg`;
             }
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const optionCards = document.querySelectorAll('.option-card');
-                const select = document.getElementById('type');
-                const colorschemeSelect = document.getElementById('colorscheme');
+            const colorDots = document.querySelectorAll('.dot');
+            colorDots.forEach(dot => dot.classList.remove('selected'));
+            const selectedDot = document.querySelector(`.dot[data-color="${color}"]`);
+            selectedDot
+                .classList
+                .add('selected');
+        }
 
-                optionCards.forEach(card => {
-                    card.addEventListener('click', function () {
-                        optionCards.forEach(c => c.classList.remove('selected'));
-                        this
-                            .classList
-                            .add('selected');
-                        const value = this.dataset.value;
-                        select.value = value;
+        document.addEventListener('DOMContentLoaded', function () {
+            const optionCards = document.querySelectorAll('.option-card');
+            const select = document.getElementById('type');
+            const colorschemeSelect = document.getElementById('colorscheme');
 
-                        const currentColor = colorschemeSelect.value;
-                        if (value === 'buttons') {
-                            document
-                                .getElementById('color-preview')
-                                .src = `/img/example-collection-buttons-${currentColor}.jpg`;
-                        } else {
-                            document
-                                .getElementById('color-preview')
-                                .src = `/img/example-collection-${currentColor}.jpg`;
-                        }
+            optionCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    optionCards.forEach(c => c.classList.remove('selected'));
+                    this
+                        .classList
+                        .add('selected');
+                    const value = this.dataset.value;
+                    select.value = value;
 
-                        const event = new Event('change', {bubbles: true});
-                        select.dispatchEvent(event);
-                    });
+                    const currentColor = colorschemeSelect.value;
+                    if (value === 'buttons') {
+                        document
+                            .getElementById('color-preview')
+                            .src = `/img/example-collection-buttons-${currentColor}.jpg`;
+                    } else {
+                        document
+                            .getElementById('color-preview')
+                            .src = `/img/example-collection-${currentColor}.jpg`;
+                    }
+
+                    const event = new Event('change', {bubbles: true});
+                    select.dispatchEvent(event);
                 });
-
-                const selectedCard = document.querySelector('.option-card.selected');
-                if (selectedCard) {
-                    select.value = selectedCard.dataset.value;
-                }
             });
+
+            const selectedCard = document.querySelector('.option-card.selected');
+            if (selectedCard) {
+                select.value = selectedCard.dataset.value;
+            }
+        });
         </script>
         <!-- Google Tag Manager (noscript) -->
         <noscript>
@@ -982,11 +970,4 @@
                 style="display:none;visibility:hidden"></iframe>
         </noscript>
         <!-- End Google Tag Manager (noscript) -->
-
-        <script
-            defer="defer"
-            src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-            integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-            data-cf-beacon='{"rayId":"905a10732eb6ee55","version":"2025.1.0","r":1,"token":"7e9650880b924d70946c0710b44e7cd9","serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}}}'
-            crossorigin="anonymous"></script>
     </html>
