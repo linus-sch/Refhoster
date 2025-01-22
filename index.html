@@ -113,6 +113,14 @@
                 height: auto;
             }
 
+            .slogan {
+                font-size: 1em;
+                color: #333;
+                font-weight: 500;
+                margin: 10px;
+                margin-left: 20px;
+
+            }
             .navbutton {
                 background-color: #3c55c4;
                 padding: 3px;
@@ -156,11 +164,14 @@
                 .nav-links {
                     display: none;
                 }
+                .slogan {
+                    display: none;
+                }
             }
 
             .hero {
                 position: relative;
-                height: 72vh;
+                height: 85vh;
                 overflow: hidden;
                 display: flex;
                 flex-direction: column;
@@ -444,7 +455,7 @@
 
                 .header-image,
                 .problem-image {
-                    text-align: left;
+                    text-align: right;
                 }
 
                 .problem-image {
@@ -495,6 +506,7 @@
                 color: #9b9999;
                 margin: 0 3px;
                 font-size: 1em;
+                font-weight: 200;
             }
 
             .footer-link {
@@ -786,6 +798,12 @@
                     display: none;
                 }
             }
+
+            #additional {
+                font-size: 1em;
+                position: relative;
+                margin-top: 40px;
+            }
         </style>
     </head>
     <body>
@@ -795,13 +813,14 @@
                 alt="Refhoster Logo"
                 class="logo"
                 loading="lazy">
-
+            <p class="slogan">- completely free, no ads</p>
             <div class="nav-links">
                 <a href="/view.html?pin=1234">Demo</a>
-                <a href="/terms-of-use.html">Terms of use</a>
+                <a href="#features">Features</a>
                 <a class="navbutton" href="/create.html">Get started</a>
             </div>
         </div>
+    
         <div class="hero">
             <div class="hero-content">
                 <h1>Host your references on a QR code</h1>
@@ -810,21 +829,64 @@
                         <span class="text">Get started</span>
                         <span class="svg">
                             <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="50"
-                                height="15"
-                                viewbox="0 0 38 15"
-                                fill="none">
-                                <path
-                                    fill="white"
-                                    d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"></path>
-                            </svg>
-                        </span>
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="50"
+                            height="15"
+                            viewbox="0 0 38 15"
+                            fill="none">
+                            <path
+                                fill="white"
+                                d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"></path>
+                        </svg>
+
                     </button>
                 </a>
                 <p class="subtext">100% free, no signup</p>
             </div>
         </div>
+        <div class="container">
+
+        <div class="header">
+            <div class="header-text">
+                <h2>What's Refhoster?</h2>
+                <p>With Refhoster, you can save the sources and links for your presentation or
+                    video on a QR code.
+                    <br>All you gotta do is enter all your links with their titles into a form, no
+                    sign-up needed, and it's free.
+                    <br>Then, anyone can scan the QR code you get. They'll see all the links with
+                    their titles and subtitles in the collection. Plus, everyone can see how many
+                    times the collection has been viewed.
+                </p>
+                <a
+                    href="https://refhoster.com/view.html"
+                    style="text-decoration: none; color: #5170FF;">
+                    Try it out
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="6"
+                        height="11"
+                        viewbox="0 0 6 11"
+                        style="margin-left: 3px;">
+                        <polyline
+                            points=".675 .925 5.323 5.5 .675 10.075"
+                            fill="none"
+                            stroke="currentcolor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="1.1"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="header-image">
+                <img
+                    src="https://refhoster.com/img/what-is-refhoster.jpeg"
+                    alt="Person working with refhoster"
+                    loading="lazy"
+                    style="width: 350px; height: auto;">
+            </div>
+        </div>
+    </div>
+
         <div class="content">
             <div class="container" data-sr="container">
                 <div class="product-section">
@@ -832,10 +894,10 @@
                         <img
                             src="/img/screenshot-create-collection.webp"
                             alt="Create link collection page screenshot">
-
                     </div>
+
                     <div class="content-container">
-                        <h2>Create a new link collection</h2>
+                        <h2>1. Create a new link collection</h2>
                         <p>Enter your sources into our simple form, add a title, and get a QR code
                             instantly. No sign-up needed! Totally free!</p>
                         <a href="/create.html" style="text-decoration: none; color: #5170FF;">
@@ -866,7 +928,7 @@
                             loading="lazy">
                     </div>
                     <div class="content-container-v2">
-                        <h2>Share your link collection
+                        <h2>2. Share your link collection
                         </h2>
                         <p>Just scan the QR code and voila! All your links are in one place.</p>
                         <a href="/view.html?pin=1234" style="text-decoration: none; color: #5170FF;">
@@ -888,12 +950,16 @@
                         </a>
                     </div>
                     <div class="qr-co-container">
+                        <a href="/view.html?pin=1234">
+
                         <img
                             src="/img/demo-link-qrco.webp"
                             height="120px"
                             width="120px"
                             loading="lazy"
                             alt="Qr code to redirect to the demo link">
+                        </a>
+
                         <img
                             src="/img/try-it-out-hand.svg"
                             height="170px"
@@ -902,10 +968,9 @@
                             alt="Try it out"
                             class="try-it-out">
                     </div>
-
                 </div>
             </div>
-            <div class="key-features-container">
+            <div class="key-features-container" id="features">
                 <h2>Key Features</h2>
                 <div class="features-container">
                     <div class="feature-box">
@@ -963,59 +1028,12 @@
                                 <img src="https://refhoster.com/img/trash-icon.png" loading="lazy" alt="Icon 4">
                             </div>
                         </div>
-                        <p>Link groups are being deleted after 6 months to keep things tidy.*</p>
+                        <p>Link groups are being deleted after 6 months to keep things tidy.<a href="#additional" style="color: #000000; text-decoration: none;">*</a></p>
                     </div>
                 </div>
             </div>
             <div class="container">
-                <div class="header">
-                    <div class="header-text">
-                        <h2>What's Refhoster?</h2>
-                        <p>With Refhoster, you can save the sources and links for your presentation or
-                            video on a QR code.
-                            <br>All you gotta do is enter all your links with their titles into a form, no
-                                sign-up needed, and it's free.
-                            <br>Then, anyone can scan the QR code you get. They'll see all the links with
-                                their titles and subtitles in the collection. Plus, everyone can see how many
-                                times the collection has been viewed.
-                        </p>
-                        <a
-                            href="https://refhoster.com/view.html"
-                            style="text-decoration: none; color: #5170FF;">
-                            Try it out
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="6"
-                                height="11"
-                                viewbox="0 0 6 11"
-                                style="margin-left: 3px;">
-                                <polyline
-                                    points=".675 .925 5.323 5.5 .675 10.075"
-                                    fill="none"
-                                    stroke="currentcolor"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.1"/>
-                            </svg>
-
-                        </a>
-                    </div>
-                    <div class="header-image">
-                        <img
-                            src="https://refhoster.com/img/what-is-refhoster.jpeg"
-                            alt="Person working with refhoster"
-                            loading="lazy"
-                            style="width: 350px; height: auto;">
-                    </div>
-                </div>
                 <div class="problem">
-                    <div class="problem-image">
-                        <img
-                            src="https://refhoster.com/img/problem.png"
-                            alt="Person working at computer"
-                            loading="lazy"
-                            style="width: 300px; height: 200px;">
-                    </div>
                     <div class="problem-text">
                         <h2>The problem</h2>
                         <p>Keeping track of all your sources and links can be a real pain, especially
@@ -1027,6 +1045,13 @@
                             That's where Refhoster comes in - it lets you easily collect all your references
                             in one place and share them with a simple QR code.
                         </p>
+                    </div>
+                    <div class="problem-image">
+                        <img
+                            src="https://refhoster.com/img/problem.png"
+                            alt="Person working at computer"
+                            loading="lazy"
+                            style="width: 300px; height: 200px;">
                     </div>
                 </div>
             </div>
@@ -1041,7 +1066,7 @@
                             <button class="button">Submit Feedback</button>
                         </a>
                     </div>
-                    <a href="https://github.com/" style="text-decoration: none;">
+                    <a href="https://github.com/linus-sch/refhoster/tree/main" style="text-decoration: none;">
                         <img
                             src="/img/contribute-on-github-hand.svg"
                             alt="or contribute on github hand"
@@ -1063,7 +1088,7 @@
                     <input type="hidden" name="source" value="Refhoster Updates Email Notification">
                     <input type="submit" value="Subscribe" id="submit">
                 </form>
-                <p class="white-text">*Contact us to extend availability for your needs.</p>
+                <p class="white-text" id="additional">*Contact us to extend availability for your needs.</p>
             </div>
 
             <footer>
@@ -1075,6 +1100,8 @@
                             <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
                             <span class="separator">|</span>
                             <a href="/terms-of-use.html" class="footer-link">Terms of Use</a>
+                            <span class="separator">|</span>
+                            <a href="https://github.com/linus-sch/refhoster/tree/main" class="footer-link">Github</a>
                         </p>
                     </div>
                     <p class="copyright" style="margin: 0;">© 2024 Refhoster. All rights reserved.</p>
@@ -1117,13 +1144,14 @@
                 reset: true
             });
 
-            ScrollReveal().reveal('[data-sr="container"]', {
-                delay: 0,
-                duration: 500,
-                origin: 'bottom',
-                distance: '80px',
-                reset: true
-            });
+            // ScrollReveal().reveal('[data-sr="container"]', {
+            //    delay: 0,
+            //     duration: 500,
+            //    origin: 'bottom',
+            //     distance: '80px',
+            //       reset: true
+            //  });
+
 
             ScrollReveal().reveal('[data-sr="key-features"]', {
                 delay: 0,
