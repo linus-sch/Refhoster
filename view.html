@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <html>
@@ -149,7 +148,6 @@
                     --close-btn-hover: #82a283;
                     --send-report-btn: #367c38;
 
-
                 }
 
                 .blue {
@@ -173,7 +171,6 @@
                     --send-report-btn: #1b4d90;
 
                 }
-
 
                 .orange {
                     --primary-color: #fb9b56;
@@ -217,7 +214,6 @@
                     --close-btn-color: #ffa2e0;
                     --close-btn-hover: #d3bbcb;
                     --send-report-btn: #921f6c;
-
 
                 }
 
@@ -447,25 +443,43 @@
                     width: 80%;
                 }
 
+                /* From Uiverse.io by vinodjangid07 */
                 .create-link-collection {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 8px 28px;
                     background-color: #5170FF;
-                    border: 2px solid #5170FF;
-                    color: #fff;
-                    margin-top: 30px;
-                    margin: none;
-                    padding: 15px 20px;
-                    border-radius: 40px;
+                    border: 5px solid #a5b5fc;
+                    color: white;
+                    gap: 8px;
+                    width: 100%;
+                    border-radius: 50px;
                     cursor: pointer;
+                    transition: all 0.3s;
                     text-decoration: none;
-                    height: auto;
-                    transition: background-color 0.3s ease;
-                    font-size: 15px;
-                    display: none;
-                    text-align: center;
+                    margin-bottom: 10px;
                 }
-
+                .create-link-collection-text {
+                    font-size: 1.4em;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                }
+                .create-link-collection-svg {
+                    padding-top: 5px;
+                    height: 100%;
+                    width: fit-content;
+                }
+                .create-link-collection-svg svg {
+                    width: 50px;
+                    height: 30px;
+                }
                 .create-link-collection:hover {
-                    background-color: #3c55c4;
+                    background-color: #3C55C4;
+                }
+                .create-link-collection:hover .svg svg {
+                    animation: jello-vertical 0.9s both;
+                    transform-origin: left;
                 }
 
                 .big-404 {
@@ -478,10 +492,14 @@
                 }
 
                 @keyframes fadeIn {
-                    from { opacity: 0; }
-                    to { opacity: 1; }
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
                 }
-                
+
                 .create-link-collection.visible {
                     display: block !important;
                 }
@@ -613,11 +631,9 @@
                     color: #000;
 
                 }
-                .demo-options-container
-
-                .demo-options-container-h2 {
+                .demo-options-container .demo-options-container-h2 {
                     color: #000 !important;
-                    margin-top: 0px;
+                    margin-top: 0;
 
                 }
 
@@ -636,7 +652,6 @@
                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 }
 
-
                 #reportModal {
                     display: none;
                     position: fixed;
@@ -652,7 +667,7 @@
                     border: 1px solid var(--border-color);
                     background-color: var(--container-background);
                     border-radius: 20px;
-        
+
                 }
 
                 #modalOverlay {
@@ -693,12 +708,12 @@
 
                 #reportForm textarea:active {
                     border: 2px solid var(--send-report-btn);
-                    outline: 0px solid var(--send-report-btn);
+                    outline: 0 solid var(--send-report-btn);
                 }
 
                 #reportForm textarea:focus {
                     border: 2px solid var(--send-report-btn);
-                    outline: 0px solid var(--send-report-btn);
+                    outline: 0 solid var(--send-report-btn);
                 }
 
                 #reportForm {
@@ -729,8 +744,6 @@
                 #closeModal:hover {
                     background-color: var(--close-btn-hover);
                 }
-
-
             </style>
         </head>
 
@@ -738,7 +751,6 @@
             <div class="demo-options-container">
 
                 <div class="image-selector1">
-
 
                     <h2 class="demo-options-container-h2">Demo Options</h2>
                     <p>Which type of link collection would you like to preview?</p>
@@ -799,29 +811,47 @@
                                 onclick="applyTheme('pink')"></div>
                         </div>
                     </div>
-
+                    <div style="height: 20px;"></div>
                     <div class="close-demo-btn">
-                        <a
-                            id="create-link-collection"
-                            class="create-link-collection"
-                            href="create.html">Close demo and get started
-                        </a>
-                    </div>
-                    
-                    </div>
-                    </div>
-                    <div class="container">
+                        <a href="/create.html" style="text-decoration: none;">
+                            <button id="create-link-collection" class="create-link-collection">
+                                <span class="create-link-collection-text">Get started</span>
+                                <span class="create-link-collection-svg">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="50"
+                                        height="15"
+                                        viewbox="0 0 38 15"
+                                        fill="none">
+                                        <path
+                                            fill="white"
+                                            d="M10 7.519l-.939-.344h0l.939.344zm14.386-1.205l-.981-.192.981.192zm1.276 5.509l.537.843.148-.094.107-.139-.792-.611zm4.819-4.304l-.385-.923h0l.385.923zm7.227.707a1 1 0 0 0 0-1.414L31.343.448a1 1 0 0 0-1.414 0 1 1 0 0 0 0 1.414l5.657 5.657-5.657 5.657a1 1 0 0 0 1.414 1.414l6.364-6.364zM1 7.519l.554.833.029-.019.094-.061.361-.23 1.277-.77c1.054-.609 2.397-1.32 3.629-1.787.617-.234 1.17-.392 1.623-.455.477-.066.707-.008.788.034.025.013.031.021.039.034a.56.56 0 0 1 .058.235c.029.327-.047.906-.39 1.842l1.878.689c.383-1.044.571-1.949.505-2.705-.072-.815-.45-1.493-1.16-1.865-.627-.329-1.358-.332-1.993-.244-.659.092-1.367.305-2.056.566-1.381.523-2.833 1.297-3.921 1.925l-1.341.808-.385.245-.104.068-.028.018c-.011.007-.011.007.543.84zm8.061-.344c-.198.54-.328 1.038-.36 1.484-.032.441.024.94.325 1.364.319.45.786.64 1.21.697.403.054.824-.001 1.21-.09.775-.179 1.694-.566 2.633-1.014l3.023-1.554c2.115-1.122 4.107-2.168 5.476-2.524.329-.086.573-.117.742-.115s.195.038.161.014c-.15-.105.085-.139-.076.685l1.963.384c.192-.98.152-2.083-.74-2.707-.405-.283-.868-.37-1.28-.376s-.849.069-1.274.179c-1.65.43-3.888 1.621-5.909 2.693l-2.948 1.517c-.92.439-1.673.743-2.221.87-.276.064-.429.065-.492.057-.043-.006.066.003.155.127.07.099.024.131.038-.063.014-.187.078-.49.243-.94l-1.878-.689zm14.343-1.053c-.361 1.844-.474 3.185-.413 4.161.059.95.294 1.72.811 2.215.567.544 1.242.546 1.664.459a2.34 2.34 0 0 0 .502-.167l.15-.076.049-.028.018-.011c.013-.008.013-.008-.524-.852l-.536-.844.019-.012c-.038.018-.064.027-.084.032-.037.008.053-.013.125.056.021.02-.151-.135-.198-.895-.046-.734.034-1.887.38-3.652l-1.963-.384zm2.257 5.701l.791.611.024-.031.08-.101.311-.377 1.093-1.213c.922-.954 2.005-1.894 2.904-2.27l-.771-1.846c-1.31.547-2.637 1.758-3.572 2.725l-1.184 1.314-.341.414-.093.117-.025.032c-.01.013-.01.013.781.624zm5.204-3.381c.989-.413 1.791-.42 2.697-.307.871.108 2.083.385 3.437.385v-2c-1.197 0-2.041-.226-3.19-.369-1.114-.139-2.297-.146-3.715.447l.771 1.846z"></path>
+                                    </svg>
 
-                <div id="loading" class="loading-container">
-                    <div class="loading-spinner"></div>
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
                 </div>
-                <div id="links-container"></div>
-                <div class="close-demo-btn">
-                    <div id="errorContainer" style="display: none;">
-                        <div style="text-align: center;">
-                            <img src="/img/nothing-found.png" height="150" width="auto" alt="Error" style="border-radius: 8px;"></div>
+                <div class="container">
+
+                    <div id="loading" class="loading-container">
+                        <div class="loading-spinner"></div>
+                    </div>
+                    <div id="links-container"></div>
+                    <div class="close-demo-btn">
+                        <div id="errorContainer" style="display: none;">
+                            <div style="text-align: center;">
+                                <img
+                                    src="/img/nothing-found.png"
+                                    height="150"
+                                    width="auto"
+                                    alt="Error"
+                                    style="border-radius: 8px;"></div>
                             <div style="display: flex; justify-content: center; align-items: center;">
-                                <span style="font-weight: bold; margin-top: 10px; font-size: 30px; color: var(--primary-color);">Page unaviable</span>
+                                <span
+                                    style="font-weight: bold; margin-top: 10px; font-size: 30px; color: var(--primary-color);">Page unaviable</span>
                             </div>
                             <div
                                 style="text-align: center; margin-top: 15px; color: var(--text-color); padding: 10px; border-radius: 10px; background-color: var(--background-color);">
@@ -833,556 +863,582 @@
                                     style="color: var(--text-color); text-decoration: none;">Enter source pin manually →</a>
                             </div>
                         </div>
-                    <a
-                        id="create-link-collection"
-                        class="create-link-collection"
-                        href="create.html">Close demo and get started
-                    </a>
+                    </div>
+
+                    <div id="errorContainer" style="display: none;"></div>
+                    <div id="error-message" class="error-message"></div>
+                    <form id="pin-form" style="display: none;">
+                        <input
+                            id="pin-input"
+                            class="source-id-input-box"
+                            type="text"
+                            placeholder="e.g. 1234"
+                            maxlength="4"
+                            required="">
+                        <button type="submit">Submit</button>
+                    </form>
+
                 </div>
+                <div class="bottom-container">
+                    <button id="downloadButton"><img
+                        src="/img/download-icon.png"
+                        height="25"
+                        width="25"
+                        alt="Download"
+                        class="download-icon"></button>
+                    <div id="tooltip" class="tooltip">Download as CSV</div>
+                    <button id="reportButton"><img
+                        src="/img/report-icon.png"
+                        height="25"
+                        width="25"
+                        alt="Report"
+                        class="report-icon"></button>
 
-        
-
-                <div id="errorContainer" style="display: none;"></div>
-                <div id="error-message" class="error-message"></div>
-                <form id="pin-form" style="display: none;">
-                    <input
-                        id="pin-input"
-                        class="source-id-input-box"
-                        type="text"
-                        placeholder="e.g. 1234"
-                        maxlength="4"
-                        required="">
-                    <button type="submit">Submit</button>
-                </form>
-
-            </div>
-            <div class="bottom-container">
-                <button id="downloadButton"><img
-                    src="/img/download-icon.png"
-                    height="25"
-                    width="25"
-                    alt="Download"
-                    class="download-icon"></button>
-                <div id="tooltip" class="tooltip">Download as CSV</div>
-                <button id="reportButton"><img
-                    src="/img/report-icon.png"
-                    height="25"
-                    width="25"
-                    alt="Report"
-                    class="report-icon"></button>
-
-
-            </div>
-            <div id="modalOverlay"></div> 
-            <div id="reportModal">
-              <h2>Report link collection</h2>
-              <form id="reportForm">
-                <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
-                <div style="margin-top: 15px;">
-                <button type="button" id="closeModal">Close</button>
-                  <button type="button" id="sendReport">Send</button>
                 </div>
-              </form>
-            </div>
-            <footer>
-                <div class="footer-container">
-                    <nav class="footer-nav">
-                        <a href="/create.html" class="footer-link" id="create-link-collection-footer">Create link collection</a>
-                        <br>
-                        <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
-                        <br>
-                        <a href="/terms-of-use.html" class="footer-link">Terms of Use</a>
-                    </nav>
+                <div id="modalOverlay"></div>
+                <div id="reportModal">
+                    <h2>Report link collection</h2>
+                    <form id="reportForm">
+                        <textarea id="message" name="message" rows="4" placeholder="Enter your message"></textarea>
+                        <div style="margin-top: 15px;">
+                            <button type="button" id="closeModal">Close</button>
+                            <button type="button" id="sendReport">Send</button>
+                        </div>
+                    </form>
                 </div>
-            </footer>
+                <footer>
+                    <div class="footer-container">
+                        <nav class="footer-nav">
+                            <a href="/create.html" class="footer-link" id="create-link-collection-footer">Create link collection</a>
+                            <br>
+                            <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+                            <br>
+                            <a href="/terms-of-use.html" class="footer-link">Terms of Use</a>
+                        </nav>
+                    </div>
+                </footer>
 
-            <script>
-                const linksContainer = document.getElementById('links-container');
-                const errorMessageContainer = document.getElementById('error-message');
-                const enterPinButton = document.getElementById('enter-pin-button');
-                const pinForm = document.getElementById('pin-form');
-                const pinInput = document.getElementById('pin-input');
-                const loadingContainer = document.getElementById('loading');
+                <script>
+                    const linksContainer = document.getElementById('links-container');
+                    const errorMessageContainer = document.getElementById('error-message');
+                    const enterPinButton = document.getElementById('enter-pin-button');
+                    const pinForm = document.getElementById('pin-form');
+                    const pinInput = document.getElementById('pin-input');
+                    const loadingContainer = document.getElementById('loading');
 
-                function getUrlParameter(name) {
-                    name = name
-                        .replace(/[$$]/, '\\[')
-                        .replace(/[$$]/, '\\]');
-                    const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-                    const results = regex.exec(location.search);
-                    return results === null
-                        ? ''
-                        : decodeURIComponent(results[1].replace(/\+/g, ' '));
-                }
-
-                let fetchedData = null;
-
-                function fetchLinks(pin) {
-                    const demoContent = {
-                        "1234": {
-                            "collectionTitle": "The history of the camera",
-                            "collectionSubtitle": "References of my essay",
-                            "type": "t1",
-                            "viewCount": 5407,
-                            "links": [
-                                {
-                                    "title": "Wikipedia / History of the camera",
-                                    "link": "https://en.wikipedia.org/wiki/History_of_the_camera"
-                                }, {
-                                    "title": "Britannica / History of photography",
-                                    "link": "https://www.britannica.com/technology/photography"
-                                }, {
-                                    "title": "Camera Zone / History of camera",
-                                    "link": "https://youtu.be/cvy7Qlp4A2k?si=3QdP5pMcQVNh8PXT"
-                                }, {
-                                    "title": "Wikipedia / History of photography",
-                                    "link": "https://en.wikipedia.org/wiki/History_of_photography"
-                                }, {
-                                    "title": "Thought Co. / History of Photography Timeline",
-                                    "link": "https://www.thoughtco.com/photography-timeline-1992306"
-                                }
-                            ]
-                        },
-                        "2345": {
-                            "collectionTitle": "Julian Osborne",
-                            "collectionSubtitle": "My socials",
-                            "type": "buttons",
-                            "viewCount": 2001,
-                            "links": [
-                                {
-                                    "title": "My Shop",
-                                    "link": "https://etsy.com"
-                                }, {
-                                    "title": "Instagram",
-                                    "link": "https://instagram.com"
-                                }, {
-                                    "title": "TikTok",
-                                    "link": "https://tiktok.com"
-                                }, {
-                                    "title": "Youtube",
-                                    "link": "https://youtube.com"
-                                }
-                            ]
-                        }
-                    };
-
-                    if (demoContent[pin]) {
-                        const data = demoContent[pin];
-
-                        if (data.colorScheme) {
-                            changeColorScheme(data.colorScheme);
-                        }
-                        displayLinks(data);
-                        fetchedData = data;
-                        return Promise.resolve(data);
+                    function getUrlParameter(name) {
+                        name = name
+                            .replace(/[$$]/, '\\[')
+                            .replace(/[$$]/, '\\]');
+                        const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                        const results = regex.exec(location.search);
+                        return results === null
+                            ? ''
+                            : decodeURIComponent(results[1].replace(/\+/g, ' '));
                     }
 
-                    if (fetchedData !== null) {
-                        downloadAsCSV(fetchedData);
-                        return Promise.resolve(fetchedData);
-                    }
+                    let fetchedData = null;
 
-                    loadingContainer.style.display = 'flex';
-                    return fetch(
-                        `https://script.google.com/macros/s/AKfycbxB6At0IT-43aQciimG8gGYEP_f6h91WliMAxiapgoNcFIGWCReF6GTf6RU6ot_lp3Q0A/exec?sourceId=${pin}`
-                    )
-                        .then(response => response.json())
-                        .then(data => {
-                            loadingContainer.style.display = 'none';
+                    function fetchLinks(pin) {
+                        const demoContent = {
+                            "1234": {
+                                "collectionTitle": "The history of the camera",
+                                "collectionSubtitle": "References of my essay",
+                                "type": "t1",
+                                "viewCount": 5407,
+                                "links": [
+                                    {
+                                        "title": "Wikipedia / History of the camera",
+                                        "link": "https://en.wikipedia.org/wiki/History_of_the_camera"
+                                    }, {
+                                        "title": "Britannica / History of photography",
+                                        "link": "https://www.britannica.com/technology/photography"
+                                    }, {
+                                        "title": "Camera Zone / History of camera",
+                                        "link": "https://youtu.be/cvy7Qlp4A2k?si=3QdP5pMcQVNh8PXT"
+                                    }, {
+                                        "title": "Wikipedia / History of photography",
+                                        "link": "https://en.wikipedia.org/wiki/History_of_photography"
+                                    }, {
+                                        "title": "Thought Co. / History of Photography Timeline",
+                                        "link": "https://www.thoughtco.com/photography-timeline-1992306"
+                                    }
+                                ]
+                            },
+                            "2345": {
+                                "collectionTitle": "Julian Osborne",
+                                "collectionSubtitle": "My socials",
+                                "type": "buttons",
+                                "viewCount": 2001,
+                                "links": [
+                                    {
+                                        "title": "My Shop",
+                                        "link": "https://etsy.com"
+                                    }, {
+                                        "title": "Instagram",
+                                        "link": "https://instagram.com"
+                                    }, {
+                                        "title": "TikTok",
+                                        "link": "https://tiktok.com"
+                                    }, {
+                                        "title": "Youtube",
+                                        "link": "https://youtube.com"
+                                    }
+                                ]
+                            }
+                        };
 
-                            if (data.error) {
-                                const errorContainer = document.getElementById('errorContainer');
-                                errorContainer.style.display = 'block';
-                            } else {
-                                if (data.colorScheme) {
-                                    changeColorScheme(data.colorScheme);
+                        if (demoContent[pin]) {
+                            const data = demoContent[pin];
+
+                            if (data.colorScheme) {
+                                changeColorScheme(data.colorScheme);
+                            }
+                            displayLinks(data);
+                            fetchedData = data;
+                            return Promise.resolve(data);
+                        }
+
+                        if (fetchedData !== null) {
+                            downloadAsCSV(fetchedData);
+                            return Promise.resolve(fetchedData);
+                        }
+
+                        loadingContainer.style.display = 'flex';
+                        return fetch(
+                            `https://script.google.com/macros/s/AKfycbxB6At0IT-43aQciimG8gGYEP_f6h91WliMAxiapgoNcFIGWCReF6GTf6RU6ot_lp3Q0A/exec?sourceId=${pin}`
+                        )
+                            .then(response => response.json())
+                            .then(data => {
+                                loadingContainer.style.display = 'none';
+
+                                if (data.error) {
+                                    const errorContainer = document.getElementById('errorContainer');
+                                    errorContainer.style.display = 'block';
+                                } else {
+                                    if (data.colorScheme) {
+                                        changeColorScheme(data.colorScheme);
+                                    }
+                                    displayLinks(data);
+                                    fetchedData = data;
+                                    return data;
                                 }
-                                displayLinks(data);
-                                fetchedData = data;
-                                return data;
-                            }
-                        })
-                        .catch(error => {
-                            loadingContainer.style.display = 'none';
+                            })
+                            .catch(error => {
+                                loadingContainer.style.display = 'none';
 
-                            function displayError(htmlContent) {
-                                const errorContainer = document.getElementById('errorContainer');
-                                errorContainer.innerHTML = htmlContent;
-                                errorContainer.style.display = 'block';
-                            }
+                                function displayError(htmlContent) {
+                                    const errorContainer = document.getElementById('errorContainer');
+                                    errorContainer.innerHTML = htmlContent;
+                                    errorContainer.style.display = 'block';
+                                }
 
-                            displayError(
-                                `<div style="text-align: center;">
+                                displayError(
+                                    `<div style="text-align: center;">
                                     <img src="data:image/png;base64,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" height="150" width="auto" alt="Error" style="border-radius: 5px;">
                                 </div>
                                 <div style="text-align: center; font-weight: bold; font-size: 30px; color: var(--primary-color);">Error</div>
                                 <div style="text-align: center; margin-top: 20px; padding: 10px; border-radius: 10px; color: var(--text-color); background-color: var(--background-color;" font-weight: bold; font-size: 20px;">
                                     Unable to load contents. Please try again later.
                                 </div>`
-                            );
+                                );
 
-                            pinForm.style.display = 'none';
-                            return null;
-                        });
-                }
+                                pinForm.style.display = 'none';
+                                return null;
+                            });
+                    }
 
+                    function display404(errorMessageHtml) {
+                        const errorContainer = document.getElementById('errorContainer');
+                        errorContainer.style.display = 'block';
+                    }
 
-                function display404(errorMessageHtml) {
-                    const errorContainer = document.getElementById('errorContainer');
-                    errorContainer.style.display = 'block';
-                }
-  
-                function changeColorScheme(colorScheme) {
-                    document.documentElement.className = '';
+                    function changeColorScheme(colorScheme) {
+                        document.documentElement.className = '';
 
-                    if (colorScheme) {
-                        document
-                            .documentElement
-                            .classList
-                            .add(colorScheme);
+                        if (colorScheme) {
+                            document
+                                .documentElement
+                                .classList
+                                .add(colorScheme);
 
-                        if (colorScheme === 'dark') {
-                            const downloadIconElement = document.querySelector('.download-icon');
-                            if (downloadIconElement) {
-                                downloadIconElement.src = '/img/download-icon-light.png';
+                            if (colorScheme === 'dark') {
+                                const downloadIconElement = document.querySelector('.download-icon');
+                                if (downloadIconElement) {
+                                    downloadIconElement.src = '/img/download-icon-light.png';
+                                }
+
+                                const viewCountElement = document.querySelector('.view-count-icon');
+                                if (viewCountElement) {
+                                    viewCountElement.src = '/img/views-icon-light.png';
+                                }
+
                             }
-
-                            const viewCountElement = document.querySelector('.view-count-icon');
-                            if (viewCountElement) {
-                                viewCountElement.src = '/img/views-icon-light.png';
-                            }
-
                         }
                     }
-                }
 
-                function displayLinks(data) {
-                    document.title = data.collectionTitle;
-                    linksContainer.innerHTML = '';
+                    function displayLinks(data) {
+                        document.title = data.collectionTitle;
+                        linksContainer.innerHTML = '';
 
-                    const collectionTitle = document.createElement('h2');
-                    collectionTitle.className = 'collection-title';
-                    collectionTitle.textContent = data.collectionTitle;
-                    linksContainer.appendChild(collectionTitle);
+                        const collectionTitle = document.createElement('h2');
+                        collectionTitle.className = 'collection-title';
+                        collectionTitle.textContent = data.collectionTitle;
+                        linksContainer.appendChild(collectionTitle);
 
-                    const collectionSubtitle = document.createElement('h3');
-                    collectionSubtitle.className = 'collection-subtitle';
-                    collectionSubtitle.textContent = data.collectionSubtitle;
-                    linksContainer.appendChild(collectionSubtitle);
+                        const collectionSubtitle = document.createElement('h3');
+                        collectionSubtitle.className = 'collection-subtitle';
+                        collectionSubtitle.textContent = data.collectionSubtitle;
+                        linksContainer.appendChild(collectionSubtitle);
 
-                    const headerContainer = document.createElement('div');
-                    headerContainer.className = 'links-header-container';
+                        const headerContainer = document.createElement('div');
+                        headerContainer.className = 'links-header-container';
 
-                    const linksHeader = document.createElement('p');
-                    linksHeader.textContent = 'Links:';
-                    headerContainer.appendChild(linksHeader);
-                    const urlParams = new URLSearchParams(window.location.search);
-                    const pin = urlParams.get('pin');
+                        const linksHeader = document.createElement('p');
+                        linksHeader.textContent = 'Links:';
+                        headerContainer.appendChild(linksHeader);
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const pin = urlParams.get('pin');
 
-                    const viewCount = document.createElement('p');
-                    viewCount.className = 'view-count';
-                    viewCount.innerHTML = `
+                        const viewCount = document.createElement('p');
+                        viewCount.className = 'view-count';
+                        viewCount.innerHTML = `
                 <img src="/img/views-icon.png" height="17px" width="17px" style="vertical-align: middle; margin-right: 5px;" class="view-count-icon">
                 ${data.viewCount}
             `;
-                    headerContainer.appendChild(viewCount);
+                        headerContainer.appendChild(viewCount);
 
-                    linksContainer.appendChild(headerContainer);
+                        linksContainer.appendChild(headerContainer);
 
-                    const isTypeT2 = data.type === 'buttons';
+                        const isTypeT2 = data.type === 'buttons';
 
-                    if (!isTypeT2) {}
+                        if (!isTypeT2) {}
 
-                    data
-                        .links
-                        .forEach((link) => {
-                            if (isTypeT2) {
-                                const button = document.createElement('a');
-                                button.className = 'link-button';
-                                button.href = link.link;
-                                button.target = '_blank';
-                                button.textContent = link.title;
-                                linksContainer.appendChild(button);
-                            } else {
-                                const linkContainer = document.createElement('div');
-                                linkContainer.className = 'link-container';
+                        data
+                            .links
+                            .forEach((link) => {
+                                if (isTypeT2) {
+                                    const button = document.createElement('a');
+                                    button.className = 'link-button';
+                                    button.href = link.link;
+                                    button.target = '_blank';
+                                    button.textContent = link.title;
+                                    linksContainer.appendChild(button);
+                                } else {
+                                    const linkContainer = document.createElement('div');
+                                    linkContainer.className = 'link-container';
 
-                                const linkTitle = document.createElement('h4');
-                                linkTitle.textContent = link.title;
-                                linkContainer.appendChild(linkTitle);
+                                    const linkTitle = document.createElement('h4');
+                                    linkTitle.textContent = link.title;
+                                    linkContainer.appendChild(linkTitle);
 
-                                const linkAnchor = document.createElement('a');
-                                linkAnchor.href = link.link;
-                                linkAnchor.target = '_blank';
-                                linkAnchor.textContent = link.link;
-                                linkContainer.appendChild(linkAnchor);
+                                    const linkAnchor = document.createElement('a');
+                                    linkAnchor.href = link.link;
+                                    linkAnchor.target = '_blank';
+                                    linkAnchor.textContent = link.link;
+                                    linkContainer.appendChild(linkAnchor);
 
-                                linksContainer.appendChild(linkContainer);
-                            }
-                        });
+                                    linksContainer.appendChild(linkContainer);
+                                }
+                            });
 
-                    linksContainer.style.display = 'block';
-                    downloadButton.style.display = 'block';
-                    reportButton.style.display = 'block';
-                    pinForm.style.display = 'none';
-                    changeIcons();
-
-                }
-
-                function changeIcons() {
-                    const colorScheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                
-                    let downloadIconSrc = '/img/download-icon.png';
-                    let viewCountIconSrc = '/img/views-icon.png';
-                    let reportIconSrc = '/img/report-icon.png';
-
-                
-                    if (colorScheme === 'dark') {
-                        downloadIconSrc = '/img/download-icon-light.png';
-                        viewCountIconSrc = '/img/views-icon-light.png';
-                        reportIconSrc = '/img/report-icon-light.png';
-                    } else if (!['light', 'root', 'blue', 'orange', 'pink', 'green'].some(theme => document.documentElement.classList.contains(theme))) {
-                        downloadIconSrc = '/img/download-icon.png';
-                        viewCountIconSrc = '/img/views-icon.png';
-                        let reportIconSrc = '/img/report-icon.png';
-                    }
-                
-                    const downloadIconElement = document.querySelector('.download-icon');
-                    const viewCountElement = document.querySelector('.view-count-icon');
-                    const reportIconElement = document.querySelector('.report-icon');
-
-                
-                    if (downloadIconElement) {
-                        downloadIconElement.src = downloadIconSrc;
-                    }
-                    if (viewCountElement) {
-                        viewCountElement.src = viewCountIconSrc;
-                    }
-                    if (reportIconElement) {
-                        reportIconElement.src = reportIconSrc;
-                    }
-                }
-                
-                
-
-                function displayError(message) {
-                    errorMessageContainer.textContent = message;
-                    errorMessageContainer.style.display = 'block';
-                    linksContainer.style.display = 'none';
-                    pinForm.style.display = 'block';
-                }
-
-                window.onload = function () {
-                    const pin = getUrlParameter('pin');
-                    if (pin.length === 4) {
-                        fetchLinks(pin);
-                    } else {
-                        displayError('Please enter a source pin.');
-                    }
-
-                };
-
-                pinForm.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const enteredPin = pinInput
-                        .value
-                        .trim();
-                    if (enteredPin.length === 4) {
-                        window.location.search = `?pin=${enteredPin}`;
-                    } else {
-                        displayError('Please enter a valid 4-digit PIN.');
-                    }
-                });
-
-                const urlParams = new URLSearchParams(window.location.search);
-                const pin = urlParams.get('pin');
-
-                if (pin === '1234' || pin === '2345') {
-                    document
-                        .querySelector('.image-selector1')
-                        .style
-                        .display = 'block';
-                    document
-                        .querySelector('.option-container')
-                        .style
-                        .display = 'flex';
-                    document
-                        .querySelector('.create-link-collection')
-                        .style
-                        .display = 'block';
-                    document
-                        .querySelector('.demo-options-container')
-                        .style
-                        .display = 'flex';
-
-                    if (pin === '1234') {
-                        document
-                            .querySelector('.option-card1[data-value="link list"] ')
-                            .style
-                            .border = '2px solid #5271FF';
-                    } else if (pin === '2345') {
-                        document
-                            .querySelector('.option-card1[data-value="buttons"]')
-                            .style
-                            .border = '2px solid #5271FF';
-                    }
-                } else {
-                    document
-                        .querySelector('.image-selector1')
-                        .style
-                        .display = 'none';
-                }
-                function applyTheme(theme) {
-                    document.documentElement.className = '';
-
-                    if (theme && theme !== 'root') {
-                        document
-                            .documentElement
-                            .classList
-                            .add(theme);
-                    }
-
-                    document
-                        .querySelectorAll('.dot')
-                        .forEach(dot => dot.classList.remove('selected'));
-                    document
-                        .querySelector(`.dot[data-theme="${theme.replace('theme-', '')}"]`)
-                        .classList
-                        .add('selected');
+                        linksContainer.style.display = 'block';
+                        downloadButton.style.display = 'block';
+                        reportButton.style.display = 'block';
+                        pinForm.style.display = 'none';
                         changeIcons();
 
-                }
+                    }
 
-                applyTheme('root');
+                    function changeIcons() {
+                        const colorScheme = document
+                            .documentElement
+                            .classList
+                            .contains('dark')
+                                ? 'dark'
+                                : 'light';
 
-                function downloadAsCSV(data) {
-                    const rows = data
-                        .links
-                        .map(link => {
-                            const title = link
-                                .title
-                                .replace(/,/g, ' ');
-                            return [title, link.link];
-                        });
-                    rows.unshift(['Title', 'URL']);
+                        let downloadIconSrc = '/img/download-icon.png';
+                        let viewCountIconSrc = '/img/views-icon.png';
+                        let reportIconSrc = '/img/report-icon.png';
 
-                    const csvContent = rows
-                        .map(row => row.join(','))
-                        .join('\n');
+                        if (colorScheme === 'dark') {
+                            downloadIconSrc = '/img/download-icon-light.png';
+                            viewCountIconSrc = '/img/views-icon-light.png';
+                            reportIconSrc = '/img/report-icon-light.png';
+                        } else if (![
+                            'light',
+                            'root',
+                            'blue',
+                            'orange',
+                            'pink',
+                            'green'
+                        ].some(theme => document.documentElement.classList.contains(theme))) {
+                            downloadIconSrc = '/img/download-icon.png';
+                            viewCountIconSrc = '/img/views-icon.png';
+                            let reportIconSrc = '/img/report-icon.png';
+                        }
 
-                    const downloadLink = document.createElement('a');
-                    downloadLink.setAttribute(
-                        'href',
-                        'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent)
-                    );
-                    downloadLink.setAttribute('download', `${data.collectionTitle}.csv`);
+                        const downloadIconElement = document.querySelector('.download-icon');
+                        const viewCountElement = document.querySelector('.view-count-icon');
+                        const reportIconElement = document.querySelector('.report-icon');
 
-                    document
-                        .body
-                        .appendChild(downloadLink);
-                    downloadLink.click();
-                    document
-                        .body
-                        .removeChild(downloadLink);
-                }
+                        if (downloadIconElement) {
+                            downloadIconElement.src = downloadIconSrc;
+                        }
+                        if (viewCountElement) {
+                            viewCountElement.src = viewCountIconSrc;
+                        }
+                        if (reportIconElement) {
+                            reportIconElement.src = reportIconSrc;
+                        }
+                    }
 
-                document
-                    .getElementById('downloadButton')
-                    .addEventListener('click', () => {
-                        fetchLinks(pin);
+                    function displayError(message) {
+                        errorMessageContainer.textContent = message;
+                        errorMessageContainer.style.display = 'block';
+                        linksContainer.style.display = 'none';
+                        pinForm.style.display = 'block';
+                    }
+
+                    window.onload = function () {
+                        const pin = getUrlParameter('pin');
+                        if (pin.length === 4) {
+                            fetchLinks(pin);
+                        } else {
+                            displayError('Please enter a source pin.');
+                        }
+
+                    };
+
+                    pinForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const enteredPin = pinInput
+                            .value
+                            .trim();
+                        if (enteredPin.length === 4) {
+                            window.location.search = `?pin=${enteredPin}`;
+                        } else {
+                            displayError('Please enter a valid 4-digit PIN.');
+                        }
                     });
 
-                const downloadButton = document.getElementById('downloadButton');
-                const tooltip = document.getElementById('tooltip');
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const pin = urlParams.get('pin');
 
-                downloadButton.addEventListener('mouseover', () => {
-                    tooltip.style.opacity = 1;
-                });
+                    if (pin === '1234' || pin === '2345') {
+                        document
+                            .querySelector('.image-selector1')
+                            .style
+                            .display = 'block';
+                        document
+                            .querySelector('.option-container')
+                            .style
+                            .display = 'flex';
+                        document
+                            .querySelector('.create-link-collection')
+                            .style
+                            .display = 'flex';
+                        document
+                            .querySelector('.demo-options-container')
+                            .style
+                            .display = 'flex';
 
-                downloadButton.addEventListener('mouseout', () => {
-                    tooltip.style.opacity = 0;
-                });
+                        if (pin === '1234') {
+                            document
+                                .querySelector('.option-card1[data-value="link list"] ')
+                                .style
+                                .border = '2px solid #5271FF';
+                        } else if (pin === '2345') {
+                            document
+                                .querySelector('.option-card1[data-value="buttons"]')
+                                .style
+                                .border = '2px solid #5271FF';
+                        }
+                    } else {
+                        document
+                            .querySelector('.image-selector1')
+                            .style
+                            .display = 'none';
+                    }
+                    function applyTheme(theme) {
+                        document.documentElement.className = '';
 
+                        if (theme && theme !== 'root') {
+                            document
+                                .documentElement
+                                .classList
+                                .add(theme);
+                        }
 
-                document.getElementById('reportButton').addEventListener('click', function () {
-                document.getElementById('modalOverlay').style.display = 'block';
-                document.getElementById('reportModal').style.display = 'block';
-                });
+                        document
+                            .querySelectorAll('.dot')
+                            .forEach(dot => dot.classList.remove('selected'));
+                        document
+                            .querySelector(`.dot[data-theme="${theme.replace('theme-', '')}"]`)
+                            .classList
+                            .add('selected');
+                        changeIcons();
 
-                document.getElementById('closeModal').addEventListener('click', function () {
-                document.getElementById('modalOverlay').style.display = 'none';
-                document.getElementById('reportModal').style.display = 'none';
-                });
+                    }
 
-                document.getElementById('sendReport').addEventListener('click', function () {
-                var pin = getUrlParameter('pin');
-                var message = document.getElementById('message').value;
+                    applyTheme('root');
 
-                if (!message.trim()) {
-                    alert('Please enter a message before sending.');
-                    return;
-                }
+                    function downloadAsCSV(data) {
+                        const rows = data
+                            .links
+                            .map(link => {
+                                const title = link
+                                    .title
+                                    .replace(/,/g, ' ');
+                                return [title, link.link];
+                            });
+                        rows.unshift(['Title', 'URL']);
 
-                var form = document.createElement('form');
-                form.method = 'POST';
-                form.action = 'https://script.google.com/macros/s/AKfycbzL8UZSKef1HztYFa6HeNz7bgVQfX2U-_wR6d3mTiklA1noVVmeb0BuEdbw7blZ0r8S/exec';
+                        const csvContent = rows
+                            .map(row => row.join(','))
+                            .join('\n');
 
-                var inputPin = document.createElement('input');
-                inputPin.type = 'hidden';
-                inputPin.name = 'link';
-                inputPin.value = pin;
-                form.appendChild(inputPin);
+                        const downloadLink = document.createElement('a');
+                        downloadLink.setAttribute(
+                            'href',
+                            'data:text/csv;charset=utf-8,' + encodeURIComponent(csvContent)
+                        );
+                        downloadLink.setAttribute('download', `${data.collectionTitle}.csv`);
 
-                var inputSource = document.createElement('input');
-                inputSource.type = 'hidden';
-                inputSource.name = 'source';
-                inputSource.value = 'Refhoster - Report link collection';
-                form.appendChild(inputSource);
+                        document
+                            .body
+                            .appendChild(downloadLink);
+                        downloadLink.click();
+                        document
+                            .body
+                            .removeChild(downloadLink);
+                    }
 
-                var inputMessage = document.createElement('input');
-                inputMessage.type = 'hidden';
-                inputMessage.name = 'message';
-                inputMessage.value = message;
-                form.appendChild(inputMessage);
+                    document
+                        .getElementById('downloadButton')
+                        .addEventListener('click', () => {
+                            fetchLinks(pin);
+                        });
 
-                document.body.appendChild(form);
-                form.submit();
+                    const downloadButton = document.getElementById('downloadButton');
+                    const tooltip = document.getElementById('tooltip');
 
-                document.getElementById('modalOverlay').style.display = 'none';
-                document.getElementById('reportModal').style.display = 'none';
-                alert('Report sent successfully!');
-                });
+                    downloadButton.addEventListener('mouseover', () => {
+                        tooltip.style.opacity = 1;
+                    });
 
-                const reportButton = document.getElementById('reportButton');
-                const reportModal = document.getElementById('reportModal');
-                const modalOverlay = document.getElementById('modalOverlay');
-                const closeModal = document.getElementById('closeModal');
+                    downloadButton.addEventListener('mouseout', () => {
+                        tooltip.style.opacity = 0;
+                    });
 
-                reportButton.addEventListener('click', () => {
-                    reportModal.style.display = 'block';
-                    modalOverlay.style.display = 'block';
-                });
+                    document
+                        .getElementById('reportButton')
+                        .addEventListener('click', function () {
+                            document
+                                .getElementById('modalOverlay')
+                                .style
+                                .display = 'block';
+                            document
+                                .getElementById('reportModal')
+                                .style
+                                .display = 'block';
+                        });
 
-                closeModal.addEventListener('click', () => {
-                    reportModal.style.display = 'none';
-                    modalOverlay.style.display = 'none';
-                });
+                    document
+                        .getElementById('closeModal')
+                        .addEventListener('click', function () {
+                            document
+                                .getElementById('modalOverlay')
+                                .style
+                                .display = 'none';
+                            document
+                                .getElementById('reportModal')
+                                .style
+                                .display = 'none';
+                        });
 
-                modalOverlay.addEventListener('click', () => {
-                    reportModal.style.display = 'none';
-                    modalOverlay.style.display = 'none';
-                });
+                    document
+                        .getElementById('sendReport')
+                        .addEventListener('click', function () {
+                            var pin = getUrlParameter('pin');
+                            var message = document
+                                .getElementById('message')
+                                .value;
 
-            </script>
-            <!-- Google Tag Manager (noscript) -->
-            <noscript>
-                <iframe
-                    src="https://www.googletagmanager.com/ns.html?id=GTM-5Z5NN7LP"
-                    height="0"
-                    width="0"
-                    style="display:none;visibility:hidden"></iframe>
-            </noscript>
-            <!-- End Google Tag Manager (noscript) -->
+                            if (!message.trim()) {
+                                alert('Please enter a message before sending.');
+                                return;
+                            }
+
+                            var form = document.createElement('form');
+                            form.method = 'POST';
+                            form.action = 'https://script.google.com/macros/s/AKfycbzL8UZSKef1HztYFa6HeNz7bgVQfX2U-_wR6d3' +
+                                    'mTiklA1noVVmeb0BuEdbw7blZ0r8S/exec';
+
+                            var inputPin = document.createElement('input');
+                            inputPin.type = 'hidden';
+                            inputPin.name = 'link';
+                            inputPin.value = pin;
+                            form.appendChild(inputPin);
+
+                            var inputSource = document.createElement('input');
+                            inputSource.type = 'hidden';
+                            inputSource.name = 'source';
+                            inputSource.value = 'Refhoster - Report link collection';
+                            form.appendChild(inputSource);
+
+                            var inputMessage = document.createElement('input');
+                            inputMessage.type = 'hidden';
+                            inputMessage.name = 'message';
+                            inputMessage.value = message;
+                            form.appendChild(inputMessage);
+
+                            document
+                                .body
+                                .appendChild(form);
+                            form.submit();
+
+                            document
+                                .getElementById('modalOverlay')
+                                .style
+                                .display = 'none';
+                            document
+                                .getElementById('reportModal')
+                                .style
+                                .display = 'none';
+                            alert('Report sent successfully!');
+                        });
+
+                    const reportButton = document.getElementById('reportButton');
+                    const reportModal = document.getElementById('reportModal');
+                    const modalOverlay = document.getElementById('modalOverlay');
+                    const closeModal = document.getElementById('closeModal');
+
+                    reportButton.addEventListener('click', () => {
+                        reportModal.style.display = 'block';
+                        modalOverlay.style.display = 'block';
+                    });
+
+                    closeModal.addEventListener('click', () => {
+                        reportModal.style.display = 'none';
+                        modalOverlay.style.display = 'none';
+                    });
+
+                    modalOverlay.addEventListener('click', () => {
+                        reportModal.style.display = 'none';
+                        modalOverlay.style.display = 'none';
+                    });
+                </script>
+                <!-- Google Tag Manager (noscript) -->
+                <noscript>
+                    <iframe
+                        src="https://www.googletagmanager.com/ns.html?id=GTM-5Z5NN7LP"
+                        height="0"
+                        width="0"
+                        style="display:none;visibility:hidden"></iframe>
+                </noscript>
+                <!-- End Google Tag Manager (noscript) -->
+            </body>
         </body>
-    </body>
-</html>
+    </html>
