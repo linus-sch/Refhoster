@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Refhoster - Create Link Collection</title>
         <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"></script>
+            src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
 
         <link rel="icon" href="favicon.ico" sizes="any">
         <link rel="icon" type="image/png" href="/img/favicon16.png" sizes="16x16">
@@ -288,7 +288,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-bottom: 0px;
+                margin-bottom: 0;
             }
             .text {
                 position: absolute;
@@ -651,6 +651,58 @@
                 z-index: 1000;
                 display: none;
             }
+
+            .link-input {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: left;
+                justify-content: space-between;
+                margin-bottom: 20px;
+                border-left: 2px solid #5271FF;
+                padding-left: 10px;
+                width: 95%;
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .sortable-ghost {
+                opacity: 0.4;
+                background-color: #f0f0f0;
+            }
+
+            .sortable-drag {
+                background-color: #fff;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .drag-handle {
+                position: absolute;
+                left: -35px;
+                top: 50%;
+                transform: translateY(-50%);
+                cursor: grab;
+                padding: 10px;
+                color: #828282;
+                transition: color 0.3s ease;
+            }
+
+            .drag-handle:hover {
+                color: #5271FF;
+            }
+
+            .link-input:hover .drag-handle {
+                opacity: 1;
+            }
+
+            #dynamic-links {
+                padding-left: 25px;
+            }
+
+            .link-input .link-input {
+                background-color: #f9f9f9;
+                padding: 10px;
+                border-radius: 0 10px 10px 0;
+            }
         </style>
     </head>
 
@@ -681,23 +733,38 @@
             </p>
 
             <form class="link-input" id="link-form">
+                <label for="collection-title">Website Title</label>
+                <input
+                    type="text"
+                    id="collection-title"
+                    name="collection-title"
+                    placeholder="e.g. My Socials">
+                <label for="collection-subtitle">Website Subtitle</label>
+                <input
+                    type="text"
+                    id="collection-subtitle"
+                    name="collection-subtitle"
+                    placeholder="e.g. John Doe">
 
-                <label for="collection-title">Websites Title:</label>
-                <input type="text" id="collection-title" name="collection-title" placeholder="e.g. My Socials">
-                <label for="collection-subtitle">Websites Subtitle:</label>
-                <input type="text" id="collection-subtitle" name="collection-subtitle" placeholder="e.g. John Doe">
-                <div class="link-input">
-                    <label for="title1">Title Nr.1:</label>
-                    <input type="text" id="title1" name="title1">
-                    <label for="link1">Link Nr.1:</label>
-                    <input type="text" id="link1" name="link1">
+                <div id="dynamic-links">
+                    <div class="link-input">
+                        <div class="drag-handle">
+                            <svg width="16" height="16" viewbox="0 0 16 16">
+                                <path
+                                    fill="currentColor"
+                                    d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </div>
+                        <label for="title1">Title No.1</label>
+                        <input type="text" id="title1" name="title1">
+                        <label for="link1">Link No.1</label>
+                        <input type="text" id="link1" name="link1">
+                    </div>
                 </div>
-                <div id="dynamic-links"></div>
+
                 <!-- From Uiverse.io by Yaya12085 -->
                 <button class="add-link-Btn" id="add-link-btn">
-
                     <div class="sign">+</div>
-
                     <div class="text">Add Link</div>
                 </button>
             </form>
@@ -810,7 +877,7 @@
                 type="email"
                 id="email"
                 style="width: 95%; padding: 10px; margin-bottom: 5px; border: 1px solid #e0e0e0; border-radius: 5px;">
-                <small style="margin-bottom: 20px; color: #333;">Optional</small>
+            <small style="margin-bottom: 20px; color: #333;">Optional</small>
             <div class="whitespace"></div>
             <hr style="height: 1px; background-color: #E0E0E0; border: none;">
             <div style="text-align: right;">
@@ -864,14 +931,20 @@
                 const newLinkDiv = document.createElement('div');
                 newLinkDiv.className = 'link-input';
                 newLinkDiv.innerHTML = `
-<label for="title${linkCount + 1}">Title Nr.${linkCount +
-                        1}:</label>
-<input type="text" id="title${linkCount + 1}" name="title${linkCount +
+            <div class="drag-handle">
+                <svg width="16" height="16" viewBox="0 0 16 16">
+                    <path fill="currentColor" d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                </svg>
+            </div>
+            <label for="title${linkCount +
+                        1}">Title No.${linkCount + 1}</label>
+            <input type="text" id="title${linkCount +
+                        1}" name="title${linkCount + 1}">
+            <label for="link${linkCount + 1}">Link No.${linkCount +
+                        1}</label>
+            <input type="text" id="link${linkCount + 1}" name="link${linkCount +
                         1}">
-<label for="link${linkCount + 1}">Link Nr.${linkCount + 1}:</label>
-<input type="text" id="link${linkCount +
-                        1}" name="link${linkCount + 1}">
-`;
+        `;
 
                 dynamicLinksDiv.appendChild(newLinkDiv);
                 linkCount++;
@@ -938,7 +1011,7 @@
                         <div class="image-text-container" style="display: flex; flex-direction: column; align-items: center; width: fit-content; padding: 20px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border-radius: 10px; background-color: #FFFFFF; margin: 20px auto;">
                             <div id="qrcode" style="margin: 0 auto;"></div>
                         </div>
-                        <div class="button-container" style="display: flex; justify-content: flex-end;">
+                        <div class="button-container" style="display: flex; justify-content: center;">
                             <p class="or-p">or</p>
                             <button class="Btn" id="copy-btn">
                                 <span class="text">Copy Link</span>
@@ -1093,6 +1166,35 @@
                     select.value = selectedCard.dataset.value;
                 }
             });
+
+            new Sortable(dynamicLinksDiv, {
+                animation: 150,
+                handle: '.drag-handle',
+                ghostClass: 'sortable-ghost',
+                dragClass: 'sortable-drag',
+                onEnd: function () {
+                    updateLinkNumbers();
+                }
+            });
+
+            function updateLinkNumbers() {
+                const linkInputs = dynamicLinksDiv.querySelectorAll('.link-input');
+                linkInputs.forEach((linkInput, index) => {
+                    const labels = linkInput.querySelectorAll('label');
+                    const inputs = linkInput.querySelectorAll('input');
+
+                    labels[0].textContent = `Title No.${index + 1}`;
+                    labels[1].textContent = `Link No.${index + 1}`;
+
+                    inputs[0].id = `title${index + 1}`;
+                    inputs[0].name = `title${index + 1}`;
+                    inputs[1].id = `link${index + 1}`;
+                    inputs[1].name = `link${index + 1}`;
+
+                    labels[0].setAttribute('for', `title${index + 1}`);
+                    labels[1].setAttribute('for', `link${index + 1}`);
+                });
+            }
         </script>
         <!-- Google Tag Manager (noscript) -->
         <noscript>
