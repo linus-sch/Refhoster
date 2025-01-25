@@ -117,8 +117,15 @@
                 font-size: 1em;
                 color: #333;
                 font-weight: 500;
-                margin: 10px 10px 10px 20px;
+                margin: 10px;
 
+            }
+
+            @media  (max-width: 775px) {
+                .slogan {
+                    display: none;
+                }
+                
             }
             .navbutton {
                 background-color: #3c55c4;
@@ -826,7 +833,8 @@
                 alt="Refhoster Logo"
                 class="logo"
                 loading="lazy">
-            <p class="slogan">- completely free, no ads</p>
+                <p class="slogan">- completely free, no ads</p>
+
             <div class="nav-links">
                 <a href="/view.html?pin=1234">Demo</a>
                 <a href="#features">Features</a>
@@ -834,7 +842,7 @@
             </div>
         </div>
 
-        <div class="hero">
+        <div class="hero" data-sr="hero">
             <div class="hero-content">
                 <h1>Host your references on a QR code</h1>
                 <a href="/create.html" style="text-decoration: none;">
@@ -857,9 +865,9 @@
                     <p class="subtext">100% free, no signup</p>
                 </div>
             </div>
-            <div class="container">
+            <div class="container" data-sr="container">
 
-                <div class="header">
+                <div class="header"  data-sr="header">
                     <div class="header-text">
                         <h2>What's Refhoster?</h2>
                         <p>With Refhoster you can save the sources and links for your presentation or
@@ -900,17 +908,21 @@
                             style="width: 350px; height: auto;">
                     </div>
                 </div>
-            </div>
 
+            </div>
+            <div style="text-align: center; color: #5170FF;">
+                <h1>How it works</h1>
+            </div>
             <div class="content">
+                
                 <div class="container" data-sr="container">
+                    
                     <div class="product-section">
                         <div class="iphone-screenshot">
                             <img
                                 src="/img/screenshot-create-collection.webp"
                                 alt="Create link collection page screenshot">
                         </div>
-
                         <div class="content-container">
                             <h2>1. Create a New Link Collection</h2>
                             <p>Enter your sources into our simple form, add a title, and receive a QR code
@@ -940,7 +952,7 @@
                             <img
                                 src="/img/screenshot-view-collection.webp"
                                 alt="Create link collection page screenshot"
-                                loading="lazy">
+                                >
                         </div>
                         <div class="content-container-v2">
                             <h2>2. Share Your Link Collection
@@ -1128,7 +1140,7 @@
                                 <a href="https://github.com/linus-sch/refhoster/tree/main" class="footer-link">Github</a>
                             </p>
                         </div>
-                        <p class="copyright" style="margin: 0;">© 2024 Refhoster. All rights reserved.</p>
+                        <p class="copyright" style="margin: 0;">© 2025 Refhoster. All rights reserved.</p>
                     </div>
                 </footer>
             </div>
@@ -1171,7 +1183,7 @@
                 // ScrollReveal().reveal('[data-sr="container"]', {    delay: 0,     duration:
                 // 500,    origin: 'bottom',     distance: '80px',       reset: true  });
 
-                ScrollReveal().reveal('[data-sr="key-features"]', {
+                ScrollReveal().reveal('[data-sr="header"]', {
                     delay: 0,
                     duration: 500,
                     origin: 'bottom',
@@ -1179,14 +1191,15 @@
                     reset: true
                 });
 
-                ScrollReveal().reveal('[data-sr="feature"]', {
+                ScrollReveal().reveal('[data-sr="navbar"]', {
                     delay: 0,
-                    duration: 500,
-                    origin: 'bottom',
-                    distance: '50px',
-                    interval: 200,
+                    duration: 300,
+                    origin: 'top',
+                    distance: '60px',
                     reset: true
                 });
+
+                
 
                 window.addEventListener('scroll', parallax);
                 window.addEventListener('resize', parallax);
@@ -1210,6 +1223,9 @@
                     width="0"
                     style="display:none;visibility:hidden"></iframe>
             </noscript>
+            <!-- End Google Tag Manager (noscript) -->
+        </body>
+    </html>
             <!-- End Google Tag Manager (noscript) -->
         </body>
     </html>
